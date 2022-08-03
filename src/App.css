@@ -1,7 +1,37 @@
 
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+
+
+
+
+
+
+
+
+
 .App {
 	width: 100vw;
 	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+
+
+	background-color: rgb(255, 255, 255);
+	color: rgb(255, 0, 0);
+
+}
+
+.appContainer {
+
+	width: 90vw;
+	height: 90vh;
+
 
 	display: flex;
 	justify-content: space-around;
@@ -10,34 +40,103 @@
 
 
 
-	background-color: black;
-	color: white;
-
+	background-color: rgb(176, 196, 222);
+	color: rgb(255, 0, 0);
+	
+	
+	border-radius: 50px;
+	box-shadow:  5px 5px 10px 0px black;
 }
 
+
+
 .appInput {
-	color: white;
-	box-shadow: 0px 0px 2px 2px white;
-	font-size: 1.5rem;
+
+	font-family: 'Dancing Script', cursive;
+	
+height: 6rem;
+
+	color: rgb(0, 102, 236);
+
+	font-size: 4rem;
 	text-align: center;
+	border: none;
 	border-radius: 15px;
 	outline: none;
 	min-width: 50%;
-	max=width: calc(100% - 20px);
-	background-color: rgb(100, 100, 100);
+	max-width: calc(100% - 20px);
+	background-color: rgb(255, 255, 255);
+	
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(0, 102, 236);
+    opacity: 1; /* Firefox */
 }
 
 .appButton {
-	min-width: 50%;
-	font-size: 2rem;
-	border-radius: 20px;
+	width: 20rem;
+	height: 6rem;
+	font-size: 4rem;
+	border-radius: 15px;
 	cursor: pointer;
+color: rgb(255, 255, 255);
+
+	
+	background-color: rgb(0, 102, 236);
+
+
+
+	box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+	border: none
 }
 
-h3 {
-	font-size: 3rem;
-	text-align: left;
+
+.appButton:hover {
+
+
+	background-color: rgb(0, 102, 236);
+	
+	color: rgb(255, 255, 255);
+
+	box-shadow: 0px 0px 20px 2px rgb(255, 255, 255);
+	transition: 0.3s;
 }
+
+.appButton:active {
+	box-shadow: none;
+}
+
+
+
+
+
+.appTraversa {
+	width: 95%;
+	border-radius: 15px;
+	background-color: rgb(236, 134, 0);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 8rem;
+}
+
+
+.appZone {
+	background-color: #fff;
+	
+	color: black;
+	height: 6rem;
+	font-size: 6rem;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+}
+
+
 
 
 

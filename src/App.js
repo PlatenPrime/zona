@@ -3,8 +3,6 @@ import { useState } from 'react';
 import './App.css';
 
 
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 
 
 
@@ -49,13 +47,37 @@ function App() {
 
 		<div className="App">
 
+			<div className="appContainer">
 
-			<input  className="appInput" type="text"
-				onChange={(event) => { setArtB(event.target.value) }}
-			/>
-			<button variant="contained" className='appButton' onClick={handlerZone}>Проверить зону</button>
 
-			<h3>Зона: {zone}</h3>
+				<input placeholder="Введи артикул..." className="appInput" type="text"
+					onChange={(event) => { setArtB(event.target.value) }}
+				/>
+
+
+
+				<button variant="contained" className='appButton' onClick={handlerZone}>ЗОНА</button>
+
+
+
+
+
+
+				<div className="appTraversa">
+
+
+					<div className="appZone">
+
+						{zone}
+
+					</div>
+
+
+				</div>
+
+
+
+			</div>
 
 		</div>
 	);
