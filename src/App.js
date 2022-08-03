@@ -1,25 +1,64 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
 
+
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
+
+
+
+
+
+
+
+
+
+
+import { artZone } from './artZone.js';
+
+
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+	const [zone, setZone] = useState("");
+	const [artB, setArtB] = useState("");
+
+
+	let item = artZone.find(item => item.art == artB);
+
+
+
+
+	const handlerZone = () => {
+
+
+
+		setZone(item["zone"]);
+
+
+	}
+
+
+
+	return (
+
+
+		<div className="App">
+
+
+			<input label="Артикул" className="appInput" type="text"
+				onChange={(event) => { setArtB(event.target.value) }}
+			/>
+			<button variant="contained" className='appButton' onClick={handlerZone}>Проверить зону</button>
+
+			<h3>Зона: {zone}</h3>
+
+		</div>
+	);
 }
 
 export default App;
