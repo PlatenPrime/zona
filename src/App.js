@@ -50,7 +50,7 @@ function App() {
 		<div className="App">
 
 
-			<input label="Артикул" className="appInput" type="text"
+			<input  className="appInput" type="text"
 				onChange={(event) => { setArtB(event.target.value) }}
 			/>
 			<button variant="contained" className='appButton' onClick={handlerZone}>Проверить зону</button>
