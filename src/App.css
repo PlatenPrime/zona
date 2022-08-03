@@ -72,7 +72,7 @@ height: 6rem;
 @media (max-width: 768px) { 
 	
 .appInput{
-	font-size: 2rem;
+	font-size: 4rem;
 }
 
 	 }
@@ -147,6 +147,14 @@ align-items: center;
 
 
 }
+
+@media (max-width: 768px) { 
+	
+	.appZone{
+		font-size: 4rem;
+	}
+	
+		 }
 
 
 
