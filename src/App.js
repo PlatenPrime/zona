@@ -47,33 +47,61 @@ function App() {
 
 		<div className="App">
 
+
+
+
+
 			<div className="appContainer">
 
 
-				<input placeholder="Введи артикул..." className="appInput" type="text"
-					onChange={(event) => { setArtB(event.target.value) }}
-				/>
+
+
+				<div className="appHeader">
+
+
+					<input placeholder="Введи артикул..." className="appInput" type="text"
+						onChange={(event) => { setArtB(event.target.value) }}
+					/>
+
+				</div>
+
+
+				<div className="appMain">
 
 
 
-				<button variant="contained" className='appButton' onClick={handlerZone}>ЗОНА</button>
 
+					<div className='appSklad' >
 
+						<button variant="contained" className='appButton' onClick={handlerZone}>ЗОНА</button>
 
+						<div className="appTraversa">
 
+							<div className="appZone">
 
+								{zone}
 
-				<div className="appTraversa">
+							</div>
 
-
-					<div className="appZone">
-
-						{zone}
+						</div>
 
 					</div>
 
 
+
+
+					<div className="appKasa">
+
+					</div>
+
+
+
+
 				</div>
+
+
+
+
 
 
 
