@@ -43,6 +43,7 @@ function App() {
 	const handlerMassage = () => {
 
 		setMassage(`Зона ${zone}:  ${artB}, _  ${number} шт_ `);
+		copy(massage);
 
 
 	}
@@ -50,7 +51,7 @@ function App() {
 	const handlerKasaMassage = () => {
 		setZone(item["zone"]);
 		setDisplayKasaMassage(true);
-		copy(massage);
+
 
 	}
 
