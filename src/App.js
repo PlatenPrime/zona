@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 
@@ -24,21 +24,41 @@ function App() {
 
 	const [zone, setZone] = useState("");
 	const [artB, setArtB] = useState("");
+	const [massage, setMassage] = useState("");
+	const [number, setNumber] = useState("");
+	const [displayKasaMassage, setDisplayKasaMassage] = useState(false);
 
 
 	let item = artZone.find(item => item.art == artB);
 
 
-
+	const copy = (whatCopy) => navigator.clipboard.writeText(whatCopy);
 
 	const handlerZone = () => {
 
-
-
 		setZone(item["zone"]);
+
+	}
+
+	const handlerMassage = () => {
+
+		setMassage(`Зона ${zone}:  ${artB}, _  ${number} шт_ `);
 
 
 	}
+
+	const handlerKasaMassage = () => {
+		setZone(item["zone"]);
+		setDisplayKasaMassage(true);
+		copy(massage);
+
+	}
+
+
+	useEffect(handlerMassage);
+
+
+
 
 
 
@@ -59,8 +79,14 @@ function App() {
 				<div className="appHeader">
 
 
-					<input placeholder="Введи артикул..." className="appInput" type="text"
+					<input placeholder="Введи артикул..." className="appInputArt" type="text"
 						onChange={(event) => { setArtB(event.target.value) }}
+					/>
+
+					<input type="number"
+						placeholder="Введи количество..." className="appInputNum"
+						onChange={(event) => { setNumber(event.target.value) }}
+
 					/>
 
 				</div>
@@ -91,6 +117,22 @@ function App() {
 
 
 					<div className="appKasa">
+
+
+
+						<button variant="contained" className='appButton' onClick={handlerKasaMassage}>ПРИНЕСТИ</button>
+
+
+						<div className="appKasaMassageDiv">
+
+							{displayKasaMassage ? <div className="appKasaMassage">
+
+								<p>{massage}</p>
+
+							</div> : ""}
+						</div>
+
+
 
 					</div>
 

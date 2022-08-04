@@ -23,7 +23,7 @@
 
 
 	background-color: rgb(255, 255, 255);
-	color: rgb(255, 0, 0);
+	color: rgb(0, 102, 236);
 
 }
 
@@ -41,7 +41,7 @@
 
 
 	background-color: rgb(176, 196, 222);
-	color: rgb(255, 0, 0);
+	color: rgb(0, 102, 236);
 	
 	
 	border-radius: 50px;
@@ -54,8 +54,10 @@
 	width: 100%;
 	height: 30%;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: space-around;
 	align-items: center;
+	
 }
 
 .appMain {
@@ -63,6 +65,7 @@
 	height: 70%;
 	display: flex;
 	flex-direction: row;
+	
 	
 }
 
@@ -77,51 +80,76 @@
 
 .appKasa {
 	width: 50%;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.appKasaMassage {
+	font-family: 'Dancing Script', cursive;
+	font-size: 2rem;
 }
 
 
-.appInput {
+.appInputArt {
+
+	
 
 	font-family: 'Dancing Script', cursive;
 	font-weight: 700;
 	
-height: 6rem;
+height: 4rem;
 
 	color: rgb(0, 102, 236);
 
-	font-size: 4rem;
+	font-size: 3rem;
 	text-align: center;
 	border: none;
 	border-radius: 15px;
 	outline: none;
-	min-width: 50%;
-	max-width: calc(100% - 20px);
+	width: 50%;
+	
 	background-color: rgb(255, 255, 255);
 	
 }
 
-@media (max-width: 768px) { 
+.appInputNum {
+
 	
-.appInput{
-	font-size: 2rem;
 
+	font-family: 'Dancing Script', cursive;
+	font-weight: 700;
+	
+height: 4rem;
+
+	color: rgb(0, 102, 236);
+
+	font-size: 3rem;
+	text-align: center;
+	border: none;
+	border-radius: 15px;
+	outline: none;
+	width: 50%;
+	
+	background-color: rgb(255, 255, 255);
+	
 }
 
-.appZone{
-	font-size: 4rem;
-}
 
-	 }
+
+
 
 
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgb(0, 102, 236);
-    opacity: 1; /* Firefox */
+    opacity: 0.3; /* Firefox */
 }
 
 .appButton {
-	width: 20rem;
+	width: fit-content;
 	height: 6rem;
 	font-size: 4rem;
 	border-radius: 15px;
@@ -170,6 +198,18 @@ color: rgb(255, 255, 255);
 	height: 8rem;
 }
 
+.appKasaMassageDiv {
+	width: 95%;
+	border-radius: 15px;
+	background-color: rgba(0, 158, 21, 0.463);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 8rem;
+	color: #fff;
+	
+}
+
 
 .appZone {
 	background-color: #fff;
@@ -190,6 +230,57 @@ align-items: center;
 
 
 
+@media (max-width: 768px) { 
+	
+	.appInputArt{
+		font-size: 2rem;
+		width: 90%;
+	
+	}
+
+	.appInputNum {
+
+		display: none;
+	}
+
+
+	
+	.appZone{
+		font-size: 4rem;
+	}
+	
+	.appKasa {
+		display: none;
+	}
+	
+	.appSklad {
+		width: 100%;
+	}
+		 }
+	
+
+		 @media (max-width: 1024px) { 
+	
+			.appInputArt{
+				font-size: 2rem;
+				min-width: 30%;
+			
+			}
+		
+			.appInputNum {
+		
+				font-size: 2rem;
+				min-width: 30%;
+			}
+		
+		
+			
+			.appZone{
+				font-size: 4rem;
+			}
+			
+			
+		}
 
 
 
