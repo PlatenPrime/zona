@@ -96,19 +96,27 @@ function App() {
 				<div className="appMain">
 
 
+					<div className="appButtonsDiv">
+
+						<button variant="contained" className='appButtonZona' onClick={handlerZone}>ЗОНА</button>
+
+						<button variant="contained" className='appButtonKasa' onClick={handlerKasaMassage}>ПРИНЕСТИ</button>
 
 
-					<div className='appSklad' >
+					</div>
 
-						<button variant="contained" className='appButton' onClick={handlerZone}>ЗОНА</button>
 
-						<div className="appTraversa">
 
-							<div className="appZone">
 
-								{zone}
 
-							</div>
+
+
+
+					<div className="appTraversa">
+
+						<div className="appZone">
+
+							{zone}
 
 						</div>
 
@@ -117,25 +125,24 @@ function App() {
 
 
 
-					<div className="appKasa">
 
 
 
-						<button variant="contained" className='appButton' onClick={handlerKasaMassage}>ПРИНЕСТИ</button>
-
-
-						<div className="appKasaMassageDiv">
-
-							{displayKasaMassage ? <div className="appKasaMassage">
-
-								<p>{massage}</p>
-
-							</div> : ""}
-						</div>
 
 
 
+
+					<div className="appKasaMassageDiv">
+
+						{displayKasaMassage ? <div className="appKasaMassage">
+
+							<p>{massage}</p>
+
+						</div> : ""}
 					</div>
+
+
+
 
 
 
