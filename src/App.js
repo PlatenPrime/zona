@@ -42,7 +42,7 @@ function App() {
 
 	const handlerMassage = () => {
 
-		setMassage(`Зона ${zone}:  ${artB}, _  ${number} шт_ `);
+		setMassage(`Зона ${zone}:  ${artB}, |  ${number} шт | `);
 		copy(massage);
 
 
