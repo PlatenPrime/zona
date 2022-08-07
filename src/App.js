@@ -27,6 +27,8 @@ function App() {
 	const [massage, setMassage] = useState("");
 	const [number, setNumber] = useState("");
 	const [displayKasaMassage, setDisplayKasaMassage] = useState(false);
+	const [displayZone, setDisplayZone] = useState(false);
+	const [borderKasaMassage, setBorderKasaMassage] = useState("")
 
 
 	let item = artZone.find(item => item.art == artB);
@@ -37,21 +39,29 @@ function App() {
 	const handlerZone = () => {
 
 		setZone(item["zone"]);
+		setDisplayZone(true);
 
 	}
+
+
+
+
 
 	const handlerMassage = () => {
 
-		setMassage(`Зона ${zone}:  ${artB}, |  ${number} шт | `);
+		setMassage(`${zone}__ ${artB}___${number} шт `);
 		copy(massage);
 
-
 	}
+
+
+
 
 	const handlerKasaMassage = () => {
 		setZone(item["zone"]);
 		setDisplayKasaMassage(true);
-
+		setDisplayZone(true);
+		setBorderKasaMassage("0px 0px 5px 0px rgb(255, 255, 255)");
 
 	}
 
@@ -69,6 +79,21 @@ function App() {
 		<div className="App">
 
 
+			<div class="bubbles">
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+
+			</div>
+
+
 
 
 
@@ -81,12 +106,22 @@ function App() {
 
 
 					<input placeholder="Введи артикул..." className="appInputArt" type="text"
-						onChange={(event) => { setArtB(event.target.value) }}
+						onChange={(event) => {
+							setArtB(event.target.value);
+							setDisplayKasaMassage(false);
+							setDisplayZone(false);
+							setBorderKasaMassage("");
+						}}
 					/>
 
 					<input type="number"
 						placeholder="Введи количество..." className="appInputNum"
-						onChange={(event) => { setNumber(event.target.value) }}
+						onChange={(event) => {
+							setNumber(event.target.value);
+							setDisplayKasaMassage(false);
+							setDisplayZone(false);
+							setBorderKasaMassage("");
+						}}
 
 					/>
 
@@ -112,34 +147,46 @@ function App() {
 
 
 
-					<div className="appTraversa">
+					<div className="appKasaMassageDiv" style={{
+						boxShadow: borderKasaMassage,
+					}}>
 
-						<div className="appZone">
+						{displayKasaMassage ? <div className="appKasaMassage"  >
 
-							{zone}
-
-						</div>
-
-					</div>
-
-
-
-
-
-
-
-
-
-
-
-					<div className="appKasaMassageDiv">
-
-						{displayKasaMassage ? <div className="appKasaMassage">
-
+							<p> Скопировано в буфер обмена:  </p>
 							<p>{massage}</p>
 
 						</div> : ""}
 					</div>
+
+
+
+
+
+
+
+					<div className="appTraversa">
+
+						{displayZone ? <div className="appZone">
+
+							{zone}
+
+						</div> :
+
+							""}
+
+
+
+					</div>
+
+
+
+
+
+
+
+
+
 
 
 
