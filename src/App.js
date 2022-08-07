@@ -49,7 +49,7 @@ function App() {
 
 	const handlerMassage = () => {
 
-		setMassage(`${zone}__ ${artB}___${number} шт `);
+		setMassage(`${zone}__${artB}__${number} шт `);
 		copy(massage);
 
 	}
