@@ -12,21 +12,23 @@
 
 .App {
 	width: 100vw;
-	height: 90vh;
+	height: 100vh;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 
+	background-color: transparent;
 
-
-
-	
 
 }
 
 .appContainer {
+
+
+	position: relative;
+	z-index: 1;
 
 	width: 90%;
 	height: 90%;
@@ -39,12 +41,12 @@
 
 
 
-	background-color: rgb(0, 0, 0);
+	background-color: rgba(5, 141, 200, 0.8);
 	color: rgb(0, 102, 236);
 	
 	
 	border-radius: 50px;
-	box-shadow:  5px 5px 10px 0px black;
+	box-shadow:  0px 0px 10px 0px rgb(255, 255, 255);
 }
 
 
@@ -95,22 +97,28 @@ height: 4rem;
 	font-size: 3rem;
 	text-align: center;
 	border: none;
-	border-radius: 10px;
+	border-radius: 15px;
 	outline: none;
 	width: 80%;
 
 	
 	background-color: transparent;
-	border-bottom: 1px solid white;
+	
 
 	text-shadow: 2px 2px 3px white;
 
-	box-shadow: 0px 0px 20px 2px rgb(255, 255, 255);
+	
 	
 }
 
-.appInputArt {
+.appInputArt:hover {
 	box-shadow: 0px 0px 20px 2px rgb(255, 255, 255);
+	transition: 0.3s;
+}
+
+.appInputArt:focus {
+	box-shadow: 0px 0px 20px 2px rgb(255, 255, 255);
+	transition: 0.3s;
 }
 
 .appInputNum {
@@ -127,20 +135,28 @@ height: 4rem;
 	font-size: 3rem;
 	text-align: center;
 	border: none;
-	border-radius: 10px;
+	border-radius: 15px;
 	outline: none;
 	width: 80%;
 	
 	background-color: transparent;
-	border-bottom: 1px solid white;
+	
 
 	text-shadow: 2px 2px 3px white;
 
-	box-shadow: 0px 0px 20px 2px rgb(255, 255, 255);
+	
 	
 }
 
+.appInputNum:hover {
+	box-shadow: 0px 0px 20px 2px rgb(255, 255, 255);
+	transition: 0.3s;
+} 
 
+.appInputNum:focus {
+	box-shadow: 0px 0px 20px 2px rgb(255, 255, 255);
+	transition: 0.3s;
+}
 
 
 
@@ -150,9 +166,11 @@ height: 4rem;
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgb(255, 255, 255);
-    opacity: 0.5; /* Firefox */
+    opacity: 0.7; /* Firefox */
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-style: italic;
 	font-size: 2rem;
+	text-shadow: none;
 }
 
 
@@ -171,8 +189,8 @@ height: 4rem;
 	border-radius: 15px;
 	cursor: pointer;
 color: rgb(255, 255, 255);
-	background-color: rgb(0, 102, 236);
-	box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+background-color: rgba(5, 141, 200, 0.5);
+	box-shadow: 0px 0px 5px 0px rgb(255, 255, 255);
 	border: none
 }
 
@@ -183,8 +201,8 @@ color: rgb(255, 255, 255);
 	border-radius: 15px;
 	cursor: pointer;
 color: rgb(255, 255, 255);
-	background-color: rgb(0, 102, 236);
-	box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+background-color: rgba(5, 141, 200, 0.5);
+	box-shadow: 0px 0px 5px 0px rgb(255, 255, 255);
 	border: none
 }
 
@@ -194,7 +212,7 @@ color: rgb(255, 255, 255);
 .appButtonZona:hover {
 
 
-	background-color: rgb(32, 129, 255);
+	
 	
 	color: rgb(255, 255, 255);
 	text-shadow: 0px 0px 5px white;
@@ -205,13 +223,13 @@ color: rgb(255, 255, 255);
 
 .appButtonZona:active {
 	box-shadow: none;
-	background-color: rgb(0, 219, 0);
+	background-color: rgb(5, 205, 142);
 }
 
 .appButtonKasa:hover {
 
 
-	background-color: rgb(32, 129, 255);
+	
 	
 	color: rgb(255, 255, 255);
 	text-shadow: 0px 0px 5px white;
@@ -222,7 +240,7 @@ color: rgb(255, 255, 255);
 
 .appButtonKasa:active {
 	box-shadow: none;
-	background-color: rgb(0, 219, 0);
+	background-color: rgb(5, 205, 142);
 }
 
 
@@ -233,7 +251,7 @@ color: rgb(255, 255, 255);
 .appTraversa {
 	width: 80%;
 	border-radius: 15px;
-	background-color: rgb(236, 134, 0);
+	background-color: rgba(236, 134, 0, 0.892);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -242,14 +260,14 @@ color: rgb(255, 255, 255);
 
 
 .appTraversa:hover {
-	box-shadow: 0px 0px 20px 2px rgb(255, 255, 255);
+	background-color: rgb(236, 134, 0);
 	transition: 0.3s;
 }
 
 .appKasaMassageDiv {
 	width: 80%;
 	border-radius: 15px;
-	border:  1px solid white;
+	
 	background-color: transparent;
 	display: flex;
 	justify-content: center;
@@ -259,14 +277,10 @@ color: rgb(255, 255, 255);
 	
 }
 
-.appKasaMassageDiv:hover {
-	box-shadow: 0px 0px 20px 2px rgb(255, 255, 255);
-	transition: 0.3s;
-}
 
 
 .appZone {
-	background-color: #fff;
+	background-color: rgb(255, 255, 255);
 	border-radius: 5px;
 	
 	color: black;
@@ -286,6 +300,12 @@ align-items: center;
 
 @media (max-width: 768px) { 
 
+
+	.App {
+		
+		height: 90vh;
+	
+	}
 
 
 	.appButtonKasa {
@@ -325,7 +345,7 @@ align-items: center;
 
 	.appKasaMassage {
 		
-		font-size: 1.5rem;
+		font-size: 1rem;
 	}
 
 	.appKasaMassageDiv {
@@ -379,8 +399,8 @@ align-items: center;
 
 
 			.appKasaMassage {
-				
-				font-size: 2rem;
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 1.5rem;
 			}
 			
 			
@@ -389,3 +409,116 @@ align-items: center;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+		.bubbles{
+			position:absolute;
+			width:100%;
+			height: 100%;
+			z-index:0;
+			overflow:hidden;
+			top:0;
+			left:0;
+		  }
+		  .bubble{
+			position: absolute;
+			bottom:-100px;
+			width:40px;
+			height: 40px;
+			background:#f1f1f1;
+			border-radius:50%;
+			opacity:0.5;
+			animation: rise 10s infinite ease-in;
+		  }
+		  .bubble:nth-child(1){
+			width:40px;
+			height:40px;
+			left:10%;
+			animation-duration:8s;
+		  }
+		  .bubble:nth-child(2){
+			width:20px;
+			height:20px;
+			left:20%;
+			animation-duration:5s;
+			animation-delay:1s;
+		  }
+		  .bubble:nth-child(3){
+			width:50px;
+			height:50px;
+			left:35%;
+			animation-duration:7s;
+			animation-delay:2s;
+		  }
+		  .bubble:nth-child(4){
+			width:80px;
+			height:80px;
+			left:50%;
+			animation-duration:11s;
+			animation-delay:0s;
+		  }
+		  .bubble:nth-child(5){
+			width:35px;
+			height:35px;
+			left:55%;
+			animation-duration:6s;
+			animation-delay:1s;
+		  }
+		  .bubble:nth-child(6){
+			width:45px;
+			height:45px;
+			left:65%;
+			animation-duration:8s;
+			animation-delay:3s;
+		  }
+		  .bubble:nth-child(7){
+			width:90px;
+			height:90px;
+			left:70%;
+			animation-duration:12s;
+			animation-delay:2s;
+		  }
+		  .bubble:nth-child(8){
+			width:25px;
+			height:25px;
+			left:80%;
+			animation-duration:6s;
+			animation-delay:2s;
+		  }
+		  .bubble:nth-child(9){
+			width:15px;
+			height:15px;
+			left:70%;
+			animation-duration:5s;
+			animation-delay:1s;
+		  }
+		  .bubble:nth-child(10){
+			width:90px;
+			height:90px;
+			left:25%;
+			animation-duration:10s;
+			animation-delay:4s;
+		  }
+		  @keyframes rise{
+			0%{
+			  bottom:-100px;
+			  transform:translateX(0);
+			}
+			50%{
+			  transform:translate(100px);
+			}
+			100%{
+			  bottom:1080px;
+			  transform:translateX(-200px);
+			}
+		  }
