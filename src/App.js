@@ -14,7 +14,7 @@ import './App.css';
 
 
 
-import { artZone } from './artZone.js';
+import { artZone } from './data/artZone.js';
 
 
 
