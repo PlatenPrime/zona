@@ -153,7 +153,13 @@ function App() {
 
 						{displayKasaMassage ? <div className="appKasaMassage"  >
 
-							<p> Скопировано в буфер обмена:  </p>
+							<p style={{
+								fontStyle: 'italic',
+								fontWeight: "100",
+								fontSize: "1rem",
+								textAlign: "center",
+							}}>
+								Скопировано в буфер обмена:  </p>
 							<p>{massage}</p>
 
 						</div> : ""}
