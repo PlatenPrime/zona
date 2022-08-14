@@ -31,7 +31,7 @@ function App() {
 	const [borderKasaMassage, setBorderKasaMassage] = useState("")
 
 
-	let item = artZone.find(item => item.art == artB);
+	let item = artZone.find(item => item.art == artB.trim());
 
 
 	const copy = (whatCopy) => navigator.clipboard.writeText(whatCopy);
