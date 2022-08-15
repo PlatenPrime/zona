@@ -53,10 +53,6 @@
 
 
 
-.appContainer:hover{
-	
-}
-
 
 
 .appHeader {
@@ -309,12 +305,19 @@ align-items: center;
 @media (max-width: 768px) { 
 
 
+
+
+
 	.App {
 		
 		height: 90vh;
 	
 	}
 
+
+	.appContainer{
+	width: 90%;
+	}
 
 	.appButtonKasa {
 		
