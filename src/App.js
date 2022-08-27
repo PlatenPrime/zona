@@ -44,6 +44,13 @@ function App() {
 	}
 
 
+	const handlerReset = () => {
+		setDisplayKasa(false);
+		setDisplayTraversa(false)
+		setDisplayBottom(true)
+	}
+
+
 	const handlerKasaMessage = () => {
 		setZone(item["zone"]);
 		setDisplayKasa(true);
@@ -79,6 +86,7 @@ function App() {
 				<Header
 					setArtB={setArtB}
 					setNumber={setNumber}
+					handlerReset={handlerReset}
 				></Header>
 
 				<Main>

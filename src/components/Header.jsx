@@ -2,7 +2,7 @@ import React from 'react';
 import style from "../styles/Header.module.css";
 
 
-const Header = ({ setArtB, setNumber }) => {
+const Header = ({ setArtB, setNumber, handlerReset }) => {
 
 
 
@@ -16,6 +16,7 @@ const Header = ({ setArtB, setNumber }) => {
 
 				onChange={(event) => {
 					setArtB(event.target.value);
+					handlerReset();
 
 				}}
 			/>
@@ -25,6 +26,7 @@ const Header = ({ setArtB, setNumber }) => {
 				className={style.inputNum}
 				onChange={(event) => {
 					setNumber(event.target.value);
+					handlerReset();
 
 				}}
 
