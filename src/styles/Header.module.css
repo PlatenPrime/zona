@@ -1,0 +1,97 @@
+
+
+.header {
+	width: 100%;
+	height: 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	
+}
+
+
+.inputArt {
+
+	
+
+	font-family: 'Gugi', cursive;
+	font-weight: 400;
+	
+height: 4rem;
+
+	color: rgb(255, 255, 255);
+
+	font-size: 3rem;
+	text-align: center;
+	border: none;
+	border-radius: 15px;
+	outline: none;
+	width: 80%;
+
+	
+	background-color: transparent;
+	
+
+	text-shadow: 2px 2px 3px white;
+
+	
+}
+
+.inputArt:hover {
+	box-shadow: 0px 0px 5px 2px rgb(255, 255, 255);
+	transition: 0.3s;
+}
+
+.inputArt:focus {
+	box-shadow: 0px 0px 5px 2px rgb(255, 255, 255);
+	transition: 0.3s;
+}
+
+
+
+.inputNum {
+
+	
+
+	font-family: 'Gugi', cursive;
+	font-weight: 400;
+	
+height: 4rem;
+
+	color: rgb(255, 255, 255);
+
+	font-size: 3rem;
+	text-align: center;
+	border: none;
+	border-radius: 15px;
+	outline: none;
+	width: 80%;
+	
+	background-color: transparent;
+	
+
+	text-shadow: 2px 2px 3px white;
+
+	
+	
+}
+
+.inputNum:hover {
+	box-shadow: 0px 0px 5px 2px rgb(255, 255, 255);
+	transition: 0.3s;
+} 
+
+.inputNum:focus {
+	box-shadow: 0px 0px 5px 2px rgb(255, 255, 255);
+	transition: 0.3s;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(255, 255, 255);
+    opacity: 0.7; /* Firefox */
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-style: italic;
+	font-size: 2rem;
+	text-shadow: none;
+}

@@ -1,0 +1,28 @@
+.container {
+
+	position: relative;
+	z-index: 1;
+
+	width: 70%;
+	height: 90%;
+
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+
+	color: rgb(0, 102, 236);
+
+	background-color: rgba(5, 160, 230, 0.815);
+	box-shadow:  0px 0px 5px 0px rgb(255, 255, 255);
+	
+	border-radius: 50px;
+	
+}
+
+@media (max-width: 1024px) { 
+.container{
+	width: 90%;
+}
+}

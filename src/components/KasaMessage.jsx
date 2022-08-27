@@ -1,12 +1,11 @@
 import React from 'react';
+import style from "./../styles/KasaMessage.module.css";
 
-const KasaMessage = () => {
+const KasaMessage = ({ message }) => {
 	return (
-		<div className="appKasaMassageDiv" style={{
-			boxShadow: borderKasaMassage,
-		}}>
+		<div className={style.kasa}>
 
-			{displayKasaMassage ? <div className="appKasaMassage"  >
+			<div className={style.kasaMessage}  >
 
 				<p style={{
 					fontStyle: 'italic',
@@ -15,9 +14,12 @@ const KasaMessage = () => {
 					textAlign: "center",
 				}}>
 					Скопировано в буфер обмена:  </p>
-				<p>{massage}</p>
+				<p>{message}</p>
 
-			</div> : ""}
+
+
+			</div>
+
 		</div>
 	);
 };

@@ -1,11 +1,12 @@
 import React from 'react';
+import style from "./../styles/Buttons.module.css";
 
-const Buttons = () => {
+const Buttons = ({ handlerZone, handlerKasaMessage }) => {
 	return (
-		<div className="appButtonsDiv">
+		<div className={style.buttons}>
 
-			<button variant="contained" className='appButtonZona' onClick={handlerZone}>ЗОНА</button>
-			<button variant="contained" className='appButtonKasa' onClick={handlerKasaMassage}>ПРИНЕСТИ</button>
+			<button className={style.buttonZona} onClick={handlerZone}>ЗОНА</button>
+			<button className={style.buttonKasa} onClick={handlerKasaMessage}>ПРИНЕСТИ</button>
 
 		</div>
 	);

@@ -1,16 +1,13 @@
 import React from 'react';
+import style from "./../styles/Traversa.module.css";
 
-const Traversa = () => {
+const Traversa = ({ zone }) => {
 	return (
-		<div className="appTraversa">
+		<div className={style.traversa}>
 
-			{displayZone ? <div className="appZone">
-
+			<div className={style.zone}>
 				{zone}
-
-			</div> :
-
-				""}
+			</div>
 
 		</div>
 	);

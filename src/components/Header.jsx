@@ -1,26 +1,31 @@
 import React from 'react';
+import style from "../styles/Header.module.css";
 
-const Header = () => {
+
+const Header = ({ setArtB, setNumber }) => {
+
+
+
 	return (
-		<div className="appHeader">
+		<div className={style.header}>
 
 
-			<input placeholder="Введи артикул..." className="appInputArt" type="text"
+			<input type="text"
+				placeholder="Введи артикул..."
+				className={style.inputArt}
+
 				onChange={(event) => {
 					setArtB(event.target.value);
-					setDisplayKasaMassage(false);
-					setDisplayZone(false);
-					setBorderKasaMassage("");
+
 				}}
 			/>
 
 			<input type="number"
-				placeholder="Введи количество..." className="appInputNum"
+				placeholder="Введи количество..."
+				className={style.inputNum}
 				onChange={(event) => {
 					setNumber(event.target.value);
-					setDisplayKasaMassage(false);
-					setDisplayZone(false);
-					setBorderKasaMassage("");
+
 				}}
 
 			/>

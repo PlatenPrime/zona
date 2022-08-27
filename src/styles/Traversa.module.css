@@ -1,0 +1,31 @@
+.traversa {
+	width: 80%;
+	border-radius: 15px;
+	background-color: rgba(236, 134, 0, 0.892);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 8rem;
+}
+
+
+.traversa:hover {
+	background-color: rgb(236, 134, 0);
+	transition: 0.3s;
+}
+
+
+.zone {
+	background-color: rgb(255, 255, 255);
+	border-radius: 5px;
+	
+	color: black;
+	height: 6rem;
+	font-size: 6rem;
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+}

@@ -1,9 +1,10 @@
 import React from 'react';
+import style from "./../styles/Main.module.css";
 
-const Main = () => {
+const Main = ({ children }) => {
 	return (
-		<div className="appMain">
-
+		<div className={style.main}>
+			{children}
 		</div>
 	);
 };

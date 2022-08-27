@@ -1,34 +1,31 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
-
-
-
-
-
-
-
-
-
-
-
+import Bottom from './components/Bottom';
+import Bubbles from './components/Bubbles';
+import Buttons from './components/Buttons';
+import Container from './components/Container';
+import Header from './components/Header';
+import KasaMessage from './components/KasaMessage';
+import Main from './components/Main';
+import Traversa from './components/Traversa';
 
 
 import { artZone } from './data/artZone.js';
 
 
-
 function App() {
-
 
 
 	const [zone, setZone] = useState("");
 	const [artB, setArtB] = useState("");
-	const [massage, setMassage] = useState("");
+	const [message, setMessage] = useState("");
 	const [number, setNumber] = useState("");
-	const [displayKasaMassage, setDisplayKasaMassage] = useState(false);
-	const [displayZone, setDisplayZone] = useState(false);
-	const [borderKasaMassage, setBorderKasaMassage] = useState("")
+
+	const [displayTraversa, setDisplayTraversa] = useState(false)
+	const [displayKasa, setDisplayKasa] = useState(false)
+	const [displayBottom, setDisplayBottom] = useState(true)
+
 
 
 	let item = artZone.find(item => item.art == artB.trim());
@@ -36,37 +33,34 @@ function App() {
 
 	const copy = (whatCopy) => navigator.clipboard.writeText(whatCopy);
 
+
+
+
+	const handlerMessage = () => {
+
+		setMessage(`${zone}__${artB}__${number} шт `);
+		copy(message);
+
+	}
+
+
+	const handlerKasaMessage = () => {
+		setZone(item["zone"]);
+		setDisplayKasa(true);
+		setDisplayTraversa(false)
+		setDisplayBottom(false)
+
+	}
+
 	const handlerZone = () => {
 
 		setZone(item["zone"]);
-		setDisplayZone(true);
-
+		setDisplayTraversa(true);
+		setDisplayKasa(false);
+		setDisplayBottom(false)
 	}
 
-
-
-
-
-	const handlerMassage = () => {
-
-		setMassage(`${zone}__${artB}__${number} шт `);
-		copy(massage);
-
-	}
-
-
-
-
-	const handlerKasaMassage = () => {
-		setZone(item["zone"]);
-		setDisplayKasaMassage(true);
-		setDisplayZone(true);
-		setBorderKasaMassage("0px 0px 5px 0px rgb(255, 255, 255)");
-
-	}
-
-
-	useEffect(handlerMassage);
+	useEffect(handlerMessage);
 
 
 
@@ -78,139 +72,33 @@ function App() {
 
 		<div className="App">
 
+			<Bubbles />
 
-			<div class="bubbles">
-				<div class="bubble"></div>
-				<div class="bubble"></div>
-				<div class="bubble"></div>
-				<div class="bubble"></div>
-				<div class="bubble"></div>
-				<div class="bubble"></div>
-				<div class="bubble"></div>
-				<div class="bubble"></div>
-				<div class="bubble"></div>
-				<div class="bubble"></div>
+			<Container>
 
-			</div>
+				<Header
+					setArtB={setArtB}
+					setNumber={setNumber}
+				></Header>
 
+				<Main>
 
+					<Buttons
+						handlerZone={handlerZone}
+						handlerKasaMessage={handlerKasaMessage}
+					></Buttons>
 
+					{displayBottom && <Bottom />}
 
+					{displayKasa && <KasaMessage message={message}></KasaMessage>}
 
-			<div className="appContainer">
+					{displayTraversa && <Traversa zone={zone}></Traversa>}
 
+				</Main>
 
+			</Container>
 
-
-				<div className="appHeader">
-
-
-					<input placeholder="Введи артикул..." className="appInputArt" type="text"
-						onChange={(event) => {
-							setArtB(event.target.value);
-							setDisplayKasaMassage(false);
-							setDisplayZone(false);
-							setBorderKasaMassage("");
-						}}
-					/>
-
-					<input type="number"
-						placeholder="Введи количество..." className="appInputNum"
-						onChange={(event) => {
-							setNumber(event.target.value);
-							setDisplayKasaMassage(false);
-							setDisplayZone(false);
-							setBorderKasaMassage("");
-						}}
-
-					/>
-
-				</div>
-
-
-				<div className="appMain">
-
-
-					<div className="appButtonsDiv">
-
-						<button variant="contained" className='appButtonZona' onClick={handlerZone}>ЗОНА</button>
-
-						<button variant="contained" className='appButtonKasa' onClick={handlerKasaMassage}>ПРИНЕСТИ</button>
-
-
-					</div>
-
-
-
-
-
-
-
-
-					<div className="appKasaMassageDiv" style={{
-						boxShadow: borderKasaMassage,
-					}}>
-
-						{displayKasaMassage ? <div className="appKasaMassage"  >
-
-							<p style={{
-								fontStyle: 'italic',
-								fontWeight: "100",
-								fontSize: "1rem",
-								textAlign: "center",
-							}}>
-								Скопировано в буфер обмена:  </p>
-							<p>{massage}</p>
-
-						</div> : ""}
-					</div>
-
-
-
-
-
-
-
-					<div className="appTraversa">
-
-						{displayZone ? <div className="appZone">
-
-							{zone}
-
-						</div> :
-
-							""}
-
-
-
-					</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				</div>
-
-
-
-
-
-
-
-			</div>
-
-		</div>
+		</div >
 	);
 }
 

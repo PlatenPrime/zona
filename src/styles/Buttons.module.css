@@ -1,0 +1,79 @@
+.buttons {
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.buttonZona {
+	width: 40%;
+	height: 6rem;
+	font-size: 2rem;
+	border-radius: 15px;
+	cursor: pointer;
+color: rgb(255, 255, 255);
+background-color: rgba(5, 141, 200, 0.5);
+	box-shadow: 0px 0px 5px 0px rgb(255, 255, 255);
+	border: none
+}
+
+.buttonKasa {
+	width: 40%;
+	height: 6rem;
+	font-size: 2rem;
+	border-radius: 15px;
+	cursor: pointer;
+color: rgb(255, 255, 255);
+background-color: rgba(5, 141, 200, 0.5);
+	box-shadow: 0px 0px 5px 0px rgb(255, 255, 255);
+	border: none
+}
+
+
+.buttonZona:hover {
+
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 0px 5px white;
+	box-shadow: 0px 0px 10px 2px rgb(255, 255, 255);
+	transition: 0.3s;
+}
+
+.buttonZona:active {
+	box-shadow: none;
+	background-color: rgba(5, 205, 142, 0.5);
+}
+
+.buttonKasa:hover {	
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 0px 5px white;
+
+	box-shadow: 0px 0px 10px 2px rgb(255, 255, 255);
+	transition: 0.3s;
+}
+
+.buttonKasa:active {
+	box-shadow: none;
+	background-color: rgba(5, 205, 142, 0.5);
+}
+
+
+@media (max-width: 1024px) { 
+	.buttons{
+		flex-direction: column;
+	}
+
+	.buttonKasa {
+		width: 80%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.buttonZona {
+		width: 80%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	}
+	

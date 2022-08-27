@@ -1,18 +1,21 @@
 import React from 'react';
+import style from "./../styles/Bubbles.module.css";
 
 const Bubbles = () => {
 	return (
-		<div class="bubbles">
-			<div class="bubble"></div>
-			<div class="bubble"></div>
-			<div class="bubble"></div>
-			<div class="bubble"></div>
-			<div class="bubble"></div>
-			<div class="bubble"></div>
-			<div class="bubble"></div>
-			<div class="bubble"></div>
-			<div class="bubble"></div>
-			<div class="bubble"></div>
+
+		<div class={style.bubbles}>
+
+			<div class={style.bubble}></div>
+			<div class={style.bubble}></div>
+			<div class={style.bubble}></div>
+			<div class={style.bubble}></div>
+			<div class={style.bubble}></div>
+			<div class={style.bubble}></div>
+			<div class={style.bubble}></div>
+			<div class={style.bubble}></div>
+			<div class={style.bubble}></div>
+			<div class={style.bubble}></div>
 
 		</div>
 	);
