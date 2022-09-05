@@ -8,6 +8,7 @@ import Container from './components/Container';
 import Header from './components/Header';
 import KasaMessage from './components/KasaMessage';
 import Main from './components/Main';
+import Photo from './components/Photo';
 import Traversa from './components/Traversa';
 
 
@@ -90,11 +91,16 @@ function App() {
 				></Header>
 
 				<Main>
+					<div className="buttonsphoto">
+						<Photo artB={artB} />
 
-					<Buttons
-						handlerZone={handlerZone}
-						handlerKasaMessage={handlerKasaMessage}
-					></Buttons>
+						<Buttons
+							handlerZone={handlerZone}
+							handlerKasaMessage={handlerKasaMessage}
+						></Buttons>
+
+					</div>
+
 
 					{displayBottom && <Bottom />}
 
