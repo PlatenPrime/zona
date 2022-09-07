@@ -6,14 +6,14 @@
 	width: 70%;
 	height: 90%;
 
+	display: grid;
 
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-direction: column;
+
+	grid-template-columns: 1fr 1fr 2fr;
+grid-template-rows: 2fr 1fr 1fr;
+
 
 	color: rgb(0, 102, 236);
-
 	background-color: rgba(5, 160, 230, 0.815);
 	box-shadow:  0px 0px 5px 0px rgb(255, 255, 255);
 	
@@ -23,6 +23,10 @@
 
 @media (max-width: 1024px) { 
 .container{
+
 	width: 90%;
+
+	grid-template-columns: 1fr 1fr;
+grid-template-rows: 2fr 40% 2fr 2fr;
 }
 }

@@ -1,16 +1,25 @@
 .buttons {
-	width: 50%;
+	width: 80%;
 	height: 100%;
+	
+	grid-row: 2 / 3;
+	grid-column: 1 / 3;
+
+	justify-self: center;
+	align-self: center;
+
+
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	font-display: row;
 	align-items: center;
+	justify-content: space-between;
+
 }
 
 .buttonZona {
-	width: 80%;
+	width: 40%;
 	height: 40%;
-	font-size: 2rem;
+	font-size: 1rem;
 	border-radius: 15px;
 	cursor: pointer;
 color: rgb(255, 255, 255);
@@ -18,20 +27,19 @@ background-color: rgba(5, 141, 200, 0.5);
 	box-shadow: 0px 0px 5px 0px rgb(255, 255, 255);
 	border: none;
 
-		margin-bottom: 10px;
+
 }
 
 .buttonKasa {
-	width: 80%;
+	width: 40%;
 	height: 40%;
-	font-size: 2rem;
+	font-size: 1rem;
 	border-radius: 15px;
 	cursor: pointer;
 color: rgb(255, 255, 255);
 background-color: rgba(5, 141, 200, 0.5);
 	box-shadow: 0px 0px 5px 0px rgb(255, 255, 255);
 	border: none;
-	margin-top: 10px;
 
 }
 
@@ -63,26 +71,25 @@ background-color: rgba(5, 141, 200, 0.5);
 }
 
 
-@media (max-width: 768px) { 
-	.buttons{
-		width: 80%;
-	}
+@media (max-width: 1024px) { 
+	
+	
+.buttons {
+	grid-row: 3/ 4;
+	grid-column: 1 / 3;
+}
+.buttonZona {
+	
+	font-size: 1rem;
 
-	.buttonKasa {
-		width: 80%;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		font-size: 1rem;
-		height: 3rem;
-	}
+}
 
-	.buttonZona {
-		width: 80%;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		font-size: 1rem;
-		height: 3rem;
-	}
+.buttonKasa {
+
+	font-size: 1rem;
+
+}
+
 
 	}
 	

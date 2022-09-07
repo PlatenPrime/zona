@@ -1,13 +1,11 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
-import Bottom from './components/Bottom';
 import Bubbles from './components/Bubbles';
 import Buttons from './components/Buttons';
 import Container from './components/Container';
 import Header from './components/Header';
 import KasaMessage from './components/KasaMessage';
-import Main from './components/Main';
 import Photo from './components/Photo';
 import Traversa from './components/Traversa';
 
@@ -25,7 +23,7 @@ function App() {
 
 	const [displayTraversa, setDisplayTraversa] = useState(false)
 	const [displayKasa, setDisplayKasa] = useState(false)
-	const [displayBottom, setDisplayBottom] = useState(true)
+	
 
 
 
@@ -48,7 +46,7 @@ function App() {
 	const handlerReset = () => {
 		setDisplayKasa(false);
 		setDisplayTraversa(false)
-		setDisplayBottom(true)
+		
 	}
 
 
@@ -56,7 +54,7 @@ function App() {
 		setZone(item["zone"]);
 		setDisplayKasa(true);
 		setDisplayTraversa(false)
-		setDisplayBottom(false)
+		
 
 	}
 
@@ -65,7 +63,7 @@ function App() {
 		setZone(item["zone"]);
 		setDisplayTraversa(true);
 		setDisplayKasa(false);
-		setDisplayBottom(false)
+		
 	}
 
 	useEffect(handlerMessage);
@@ -90,25 +88,28 @@ function App() {
 					handlerReset={handlerReset}
 				></Header>
 
-				<Main>
-					<div className="buttonsphoto">
-						<Photo artB={artB} />
-
-						<Buttons
-							handlerZone={handlerZone}
-							handlerKasaMessage={handlerKasaMessage}
-						></Buttons>
-
-					</div>
 
 
-					{displayBottom && <Bottom />}
+				<Photo artB={artB} />
 
-					{displayKasa && <KasaMessage message={message}></KasaMessage>}
 
-					{displayTraversa && <Traversa zone={zone}></Traversa>}
 
-				</Main>
+
+				<Buttons
+					handlerZone={handlerZone}
+					handlerKasaMessage={handlerKasaMessage}
+				></Buttons>
+
+
+
+
+			
+
+				{displayKasa && <KasaMessage message={message}></KasaMessage>}
+
+				{displayTraversa && <Traversa zone={zone}></Traversa>}
+
+
 
 			</Container>
 
