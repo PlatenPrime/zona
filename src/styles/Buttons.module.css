@@ -19,7 +19,7 @@
 .buttonZona {
 	width: 40%;
 	height: 40%;
-	font-size: 1rem;
+	font-size: 1.5rem;
 	border-radius: 15px;
 	cursor: pointer;
 color: rgb(255, 255, 255);
@@ -33,7 +33,7 @@ background-color: rgba(5, 141, 200, 0.5);
 .buttonKasa {
 	width: 40%;
 	height: 40%;
-	font-size: 1rem;
+	font-size: 1.5rem;
 	border-radius: 15px;
 	cursor: pointer;
 color: rgb(255, 255, 255);

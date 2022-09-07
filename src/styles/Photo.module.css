@@ -26,8 +26,17 @@ align-items: center;
 	}
 }
 
-img {
+a {
 	width: auto;
 	height: 100%;
 	border-radius: 15px;
+}
+
+a img {
+	width: auto;
+	height: 100%;
+	border-radius: 15px;
+	font-size: 1rem;
+	color: white;
+	text-decoration: none;
 }
