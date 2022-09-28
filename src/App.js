@@ -6,6 +6,7 @@ import Buttons from './components/Buttons';
 import Container from './components/Container';
 import Header from './components/Header';
 import KasaMessage from './components/KasaMessage';
+import Name from './components/Name';
 import Photo from './components/Photo';
 import Traversa from './components/Traversa';
 
@@ -19,15 +20,24 @@ function App() {
 	const [zone, setZone] = useState("");
 	const [artB, setArtB] = useState("");
 	const [message, setMessage] = useState("");
+	const [messageCopy, setMessageCopy] = useState("");
+
 	const [number, setNumber] = useState("");
+	const [name, setName] = useState("");
+
+
+
 
 	const [displayTraversa, setDisplayTraversa] = useState(false)
 	const [displayKasa, setDisplayKasa] = useState(false)
-	
+
 
 
 
 	let item = artZone.find(item => item.art == artB.trim());
+
+	const photo = `https://sharik.ua/images/elements_big/${artB.trim()}_m1.jpg`
+
 
 
 	const copy = (whatCopy) => navigator.clipboard.writeText(whatCopy);
@@ -37,8 +47,18 @@ function App() {
 
 	const handlerMessage = () => {
 
-		setMessage(`${zone}__${artB}__${number} шт `);
-		copy(message);
+		setMessage(`${zone}__${artB}__${number} шт `)
+
+		setMessageCopy(`\r\n
+		Зона ${zone}\r\n
+		Артикул ${artB}\r\n
+		Количество ${number} шт \r\n
+		${photo} \r\n
+		${name} 
+		
+		`);
+
+		copy(messageCopy);
 
 	}
 
@@ -46,7 +66,7 @@ function App() {
 	const handlerReset = () => {
 		setDisplayKasa(false);
 		setDisplayTraversa(false)
-		
+
 	}
 
 
@@ -54,7 +74,7 @@ function App() {
 		setZone(item["zone"]);
 		setDisplayKasa(true);
 		setDisplayTraversa(false)
-		
+
 
 	}
 
@@ -63,10 +83,16 @@ function App() {
 		setZone(item["zone"]);
 		setDisplayTraversa(true);
 		setDisplayKasa(false);
-		
+
 	}
 
 	useEffect(handlerMessage);
+
+	useEffect(() => {
+		if (item) setName(item["name"])
+	})
+
+
 
 
 
@@ -92,7 +118,7 @@ function App() {
 
 				<Photo artB={artB} />
 
-
+				<Name name={name} />
 
 
 				<Buttons
@@ -103,7 +129,7 @@ function App() {
 
 
 
-			
+
 
 				{displayKasa && <KasaMessage message={message}></KasaMessage>}
 

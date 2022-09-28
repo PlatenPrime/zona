@@ -19,7 +19,7 @@ const Photo = ({ artB }) => {
 
 			{artB.trim().length == 9 ?
 				<a href={link} target="_blanked">
-					<img src={photo} alt="Здесь должно быть изображение артикула" ></img>
+					{<img src={photo} alt="Здесь должно быть изображение артикула" ></img>}
 				</a> :
 				<TbBallon />}
 
