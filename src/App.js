@@ -34,7 +34,7 @@ function App() {
 
 
 
-	let item = artZone.find(item => item.art == artB.trim());
+	let item = artZone.find(item => item.title == artB.trim());
 
 	const photo = `https://sharik.ua/images/elements_big/${artB.trim()}_m1.jpg`
 
