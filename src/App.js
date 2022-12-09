@@ -1,97 +1,102 @@
 
+import axios from 'axios';
+import 'tw-elements';
 import { useEffect, useState } from 'react';
-import './App.css';
-import Bubbles from './components/Bubbles';
-import Buttons from './components/Buttons';
-import Container from './components/Container';
-import Header from './components/Header';
-import KasaMessage from './components/KasaMessage';
-import Name from './components/Name';
-import Photo from './components/Photo';
-import Traversa from './components/Traversa';
 
 
-import { artZone } from './data/artZone.js';
+
+
+
 
 
 function App() {
 
-
-	const [zone, setZone] = useState("");
-	const [artB, setArtB] = useState("");
-	const [message, setMessage] = useState("");
-	const [messageCopy, setMessageCopy] = useState("");
-
-	const [number, setNumber] = useState("");
-	const [name, setName] = useState("");
+	const [arts, setArts] = useState("");
 
 
 
 
-	const [displayTraversa, setDisplayTraversa] = useState(false)
-	const [displayKasa, setDisplayKasa] = useState(false)
+	const fetchArts = async () => {
+		try {
 
+			const { data } = await axios.get(`https://btw-server.up.railway.app/api/arts`);
+			setArts(data.arts)
+			console.log(data.arts)
 
-
-
-	let item = artZone.find(item => item.title == artB.trim());
-
-	const photo = `https://sharik.ua/images/elements_big/${artB.trim()}_m1.jpg`
-
-
-
-	const copy = (whatCopy) => navigator.clipboard.writeText(whatCopy);
-
-
-
-
-	const handlerMessage = () => {
-
-		setMessage(`${zone}__${artB}__${number} шт `)
-
-		setMessageCopy(`\r\n
-		Зона ${zone}\r\n
-		Артикул ${artB}\r\n
-		Количество ${number} шт \r\n
-		${photo} \r\n
-		${name} 
-		
-		`);
-
-		copy(messageCopy);
-
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 
-	const handlerReset = () => {
-		setDisplayKasa(false);
-		setDisplayTraversa(false)
+	useEffect(() => {
+		fetchArts()
 
-	}
+	}, [])
 
 
-	const handlerKasaMessage = () => {
+
+
+
+
+	/* let item = artZone.find(item => item.title == artB.trim()); */
+
+	/* const photo = `https://sharik.ua/images/elements_big/${artB.trim()}_m1.jpg`
+
+
+
+	const copy = (whatCopy) => navigator.clipboard.writeText(whatCopy); */
+
+
+	/* 
+	
+		const handlerMessage = () => {
+	
+			setMessage(`${zone}__${artB}__${number} шт `)
+	
+			setMessageCopy(`\r\n
+			Зона ${zone}\r\n
+			Артикул ${artB}\r\n
+			Количество ${number} шт \r\n
+			${photo} \r\n
+			${name} 
+			
+			`);
+	
+			copy(messageCopy);
+	
+		}
+	
+	
+		const handlerReset = () => {
+			setDisplayKasa(false);
+			setDisplayTraversa(false)
+	
+		} */
+
+
+	/* const handlerKasaMessage = () => {
 		setZone(item["zone"]);
 		setDisplayKasa(true);
 		setDisplayTraversa(false)
 
 
-	}
+	} */
 
-	const handlerZone = () => {
+	/* const handlerZone = () => {
 
 		setZone(item["zone"]);
 		setDisplayTraversa(true);
 		setDisplayKasa(false);
 
-	}
+	} */
 
-	useEffect(handlerMessage);
+	/* useEffect(handlerMessage);
 
 	useEffect(() => {
 		if (item) setName(item["name"])
 	})
-
+ */
 
 
 
@@ -102,42 +107,67 @@ function App() {
 	return (
 
 
-		<div className="App">
-
-			<Bubbles />
-
-			<Container>
-
-				<Header
-					setArtB={setArtB}
-					setNumber={setNumber}
-					handlerReset={handlerReset}
-				></Header>
+		<div className="
+		container mx-auto
+		min-h-screen overflow-auto
+		border-2 border-blue-400
+		flex flex-col md:flex-row
+		
+		
+		
+		">
 
 
 
-				<Photo artB={artB} />
+			<div className=" p-6 rounded-lg shadow-lg bg-white ">
+				<form onSubmit={(e) => e.preventDefault}>
+					<div className=" mb-6">
 
-				<Name name={name} />
+						<input type="text" className="
+        "  placeholder="Введи артикул">
 
-
-				<Buttons
-					handlerZone={handlerZone}
-					handlerKasaMessage={handlerKasaMessage}
-				></Buttons>
-
+						</input>
 
 
+					</div>
+
+					<div className=" mb-6">
+
+						<input type="password" className=" block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+							placeholder="Password"></input>
+					</div>
+
+					<button type="submit" >Submit</button>
+				</form>
+			</div>
+
+
+			<div>
+				карточка артикула (меняет цвет, если скопировалось в буфер)
+			</div>
+
+
+			<div>
+				кнопки
+			</div>
 
 
 
-				{displayKasa && <KasaMessage message={message}></KasaMessage>}
+			<div className='hidden md:block'>анекдоты</div>
 
-				{displayTraversa && <Traversa zone={zone}></Traversa>}
-
-
-
-			</Container>
 
 		</div >
 	);
