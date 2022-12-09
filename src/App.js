@@ -111,7 +111,7 @@ function App() {
 		container mx-auto
 		min-h-screen overflow-auto
 		border-2 border-blue-400
-		flex flex-col md:flex-row
+		flex flex-col justify-between md:flex-row
 		
 		
 		
@@ -120,42 +120,40 @@ function App() {
 
 
 			<div className=" p-6 rounded-lg shadow-lg bg-white ">
+
 				<form onSubmit={(e) => e.preventDefault}>
+
+
 					<div className=" mb-6">
 
-						<input type="text" className="
-        "  placeholder="Введи артикул">
+						<input
+							type="text"
+							className=""
+							placeholder="Введи артикул">
+						</input>
+
+					</div>
+
+
+					<div className=" mb-6">
+
+						<input type="password"
+							className=" block"
+							placeholder="Password">
 
 						</input>
 
-
 					</div>
 
-					<div className=" mb-6">
-
-						<input type="password" className=" block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-							placeholder="Password"></input>
-					</div>
 
 					<button type="submit" >Submit</button>
+
 				</form>
+
 			</div>
 
 
-			<div>
+			<div className=' border-2 border-red-600'>
 				карточка артикула (меняет цвет, если скопировалось в буфер)
 			</div>
 
