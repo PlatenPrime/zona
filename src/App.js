@@ -19,7 +19,7 @@ function App() {
 	const fetchArts = async () => {
 		try {
 
-			const { data } = await axios.get(`https://btw-server.up.railway.app/api/arts`);
+			const { data } = await axios.get(`https://btw-server-2.up.railway.app/api/arts`);
 			setArts(data.arts)
 			console.log(data.arts)
 
@@ -108,63 +108,113 @@ function App() {
 
 
 		<div className="
-		container mx-auto
-		min-h-screen overflow-auto
-		border-2 border-blue-400
-		flex flex-col justify-between md:flex-row
 		
-		
+		min-h-screen 
+		max-h-screen
+		overflow-auto
+
+		flex flex-col justify-between md:flex-row  items-stretch
 		
 		">
 
 
 
-			<div className=" p-6 rounded-lg shadow-lg bg-white ">
-
-				<form onSubmit={(e) => e.preventDefault}>
-
-
-					<div className=" mb-6">
-
-						<input
-							type="text"
-							className=""
-							placeholder="Введи артикул">
-						</input>
-
-					</div>
+			<div className="w-full md:w-1/4
+			 bg-transparent  p-6  shadow-lg first-letter:
+			 flex flex-col justify-center
+			 
+			 ">
 
 
-					<div className=" mb-6">
-
-						<input type="password"
-							className=" block"
-							placeholder="Password">
-
-						</input>
-
-					</div>
 
 
-					<button type="submit" >Submit</button>
+				<div className=" mb-6">
 
-				</form>
+					<input
+						type="text"
+						className="input"
+						placeholder="Введи артикул">
+					</input>
+
+				</div>
+
+
+				<div className=" mb-6">
+
+					<input type="number"
+						className=" input"
+						placeholder="Введи количество">
+
+					</input>
+
+				</div>
+
+
+				<button
+					className='button w-full text-xl'
+					type="submit"
+				>Принести
+				</button>
+
+
+
+
 
 			</div>
 
 
-			<div className=' border-2 border-red-600'>
-				карточка артикула (меняет цвет, если скопировалось в буфер)
+
+
+			<div className=' w-full md:w-1/2 
+		 flex justify-center items-center
+			 bg-red-600 bg-opacity-10'>
+
+				<p>карточка артикула (меняет цвет, если скопировалось в буфер)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
 			</div>
 
 
-			<div>
-				кнопки
+			<div className=' flex justify-center items-center w-full md:w-1/4 
+			 bg-green-600 bg-opacity-10'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<div className='hidden md:flex justify-center items-center  '>анекдоты</div>
+
 			</div>
 
 
 
-			<div className='hidden md:block'>анекдоты</div>
+
 
 
 		</div >
