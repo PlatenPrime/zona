@@ -1,7 +1,10 @@
 
 import axios from 'axios';
 import 'tw-elements';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+import { ReactComponent as Ballons } from './assets/ballons.svg'
+
 
 
 
@@ -11,7 +14,11 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-	const [arts, setArts] = useState("");
+	const [arts, setArts] = useState([]);
+	const [art, setArt] = useState("")
+
+	const pieces = useRef(0);
+
 
 
 
@@ -35,11 +42,34 @@ function App() {
 	}, [])
 
 
+	const fetchSmiles = async () => {
+		try {
+
+			const  content  = await axios.get(`http://rzhunemogu.ru/RandJSON.aspx?CType=1`);
+
+			console.log(content)
+
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	useEffect(() => {
+		fetchSmiles()
+
+	}, [])
+
+
+
+	const photo = `https://sharik.ua/images/elements_big/${art.trim()}_m1.jpg`;
+
+	const link = `https://sharik.ua/ua/search/?q=${art.trim()}`
 
 
 
 
-	/* let item = artZone.find(item => item.title == artB.trim()); */
+
+	let item = arts.find(item => item.title == art.trim());
 
 	/* const photo = `https://sharik.ua/images/elements_big/${artB.trim()}_m1.jpg`
 
@@ -119,7 +149,10 @@ function App() {
 
 
 
-			<div className="w-full md:w-1/4
+			<form
+				onSubmit={(e) => { e.preventDefault() }}
+
+				className="w-full md:w-1/4
 			 bg-transparent  p-6  shadow-lg first-letter:
 			 flex flex-col justify-center
 			 
@@ -133,6 +166,7 @@ function App() {
 					<input
 						type="text"
 						className="input"
+						onChange={(e) => { setArt(e.target.value) }}
 						placeholder="Введи артикул">
 					</input>
 
@@ -141,8 +175,10 @@ function App() {
 
 				<div className=" mb-6">
 
-					<input type="number"
+					<input
+						type="number"
 						className=" input"
+						ref={pieces}
 						placeholder="Введи количество">
 
 					</input>
@@ -151,64 +187,80 @@ function App() {
 
 
 				<button
-					className='button w-full text-xl'
+					onClick={() => window.alert(art)}
+					className='button w-full text-xl cursor-pointer'
 					type="submit"
 				>Принести
 				</button>
 
+			</form>
 
 
 
 
-			</div>
-
-
-
-
-			<div className=' w-full md:w-1/2 
+			<div className='
+			 w-full md:w-1/2 
 		 flex justify-center items-center
-			 bg-red-600 bg-opacity-10'>
+			  '>
 
-				<p>карточка артикула (меняет цвет, если скопировалось в буфер)</p>
+				<div className='
+				flex flex-col items-center justify-evenly
+				border-8 border-white
+				w-5/6 h-5/6
 
-
-
-
-
-
-
+				'>
 
 
+					<div>
+
+						{art.trim().length == 9 &&
+
+							<h2 className='text-white text-3xl'>{art}</h2>
+						}
+
+					</div>
+
+
+					<div className="w-1/2 h-1/2 flex justify-center items-center">
+
+						{art.trim().length == 9 ?
+							<a href={link} target="_blanked">
+								{<img src={photo} alt="Изображение артикула" ></img>}
+							</a> :
+							<Ballons></Ballons>}
+
+					</div>
+
+
+
+					<div>
+
+						{art.trim().length == 9 &&
+							<h2 className='text-white text-3xl'>{item.zone}</h2>
+						}
+
+					</div>
 
 
 
 
-				
+				</div>
+
+
 
 			</div>
+
+
+
+
+
+
 
 
 			<div className=' flex justify-center items-center w-full md:w-1/4 
 			 bg-green-600 bg-opacity-10'>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				<div className='hidden md:flex justify-center items-center  '>анекдоты</div>
+				<div className='hidden md:flex justify-center items-center  '>:/</div>
 
 			</div>
 
