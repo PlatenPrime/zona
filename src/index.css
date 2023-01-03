@@ -34,6 +34,12 @@
 		min-height: 100vh;
 		
 	  }
+
+
+iframe {
+	color: white;
+}
+
 	}
 
 	@layer components {

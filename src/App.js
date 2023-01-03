@@ -16,6 +16,7 @@ function App() {
 
 	const [arts, setArts] = useState([]);
 	const [art, setArt] = useState("")
+	const [smile, setSmile] = useState("");
 
 	const pieces = useRef(0);
 
@@ -42,22 +43,6 @@ function App() {
 	}, [])
 
 
-	const fetchSmiles = async () => {
-		try {
-
-			const  content  = await axios.get(`http://rzhunemogu.ru/RandJSON.aspx?CType=1`);
-
-			console.log(content)
-
-		} catch (error) {
-			console.log(error)
-		}
-	}
-
-	useEffect(() => {
-		fetchSmiles()
-
-	}, [])
 
 
 
@@ -71,11 +56,11 @@ function App() {
 
 	let item = arts.find(item => item.title == art.trim());
 
-	/* const photo = `https://sharik.ua/images/elements_big/${artB.trim()}_m1.jpg`
 
 
 
-	const copy = (whatCopy) => navigator.clipboard.writeText(whatCopy); */
+
+	// const copy = (whatCopy) => navigator.clipboard.writeText(whatCopy); 
 
 
 	/* 
@@ -215,7 +200,10 @@ function App() {
 
 						{art.trim().length == 9 &&
 
-							<h2 className='text-white text-3xl'>{art}</h2>
+							<div className='flex flex-col justify-center items-center'>
+								<h2 className='text-white text-3xl'>{art}</h2>
+								<h2 className='text-white text-lg italic'>{item?.name}</h2>
+							</div>
 						}
 
 					</div>
@@ -236,7 +224,7 @@ function App() {
 					<div>
 
 						{art.trim().length == 9 &&
-							<h2 className='text-white text-3xl'>{item.zone}</h2>
+							<h2 className='text-white text-3xl'>{item?.zone}</h2>
 						}
 
 					</div>
@@ -260,7 +248,15 @@ function App() {
 			<div className=' flex justify-center items-center w-full md:w-1/4 
 			 bg-green-600 bg-opacity-10'>
 
-				<div className='hidden md:flex justify-center items-center  '>:/</div>
+				<div className='hidden md:flex justify-center items-center  '>
+
+
+					:/
+
+
+
+
+				</div>
 
 			</div>
 
