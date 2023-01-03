@@ -20,12 +20,30 @@ function App() {
 	const [arts, setArts] = useState([]);
 	const [art, setArt] = useState("")
 	const [message, setMessage] = useState("")
+	const [smile, setSmile] = useState("")
 
 
 	const pieces = useRef(0);
 
 
 
+	const fetchSmiles = async () => {
+		try {
+
+			const { data } = await axios.get(`http://rzhunemogu.ru/RandJSON.aspx?CType=11`);
+
+			setSmile(data.slice(11, -1));
+
+
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+
+	useEffect(() => {
+		fetchSmiles()
+	}, [])
 
 
 
@@ -291,10 +309,10 @@ function App() {
 			<div className=' flex justify-center items-center w-full md:w-1/4 
 			 bg-green-600 bg-opacity-10'>
 
-				<div className='hidden md:flex justify-center items-center  '>
+				<div className='hidden md:flex justify-center items-center text-white '>
 
 
-					:/
+					{smile}
 
 
 
