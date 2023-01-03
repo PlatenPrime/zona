@@ -5,6 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 
 import { ReactComponent as Ballons } from './assets/ballons.svg'
 
+import Telegram from 'telegram-send-message';
+
+
 
 
 
@@ -16,9 +19,12 @@ function App() {
 
 	const [arts, setArts] = useState([]);
 	const [art, setArt] = useState("")
-	const [smile, setSmile] = useState("");
+	const [message, setMessage] = useState("")
+
 
 	const pieces = useRef(0);
+
+
 
 
 
@@ -54,10 +60,47 @@ function App() {
 
 
 
-	let item = arts.find(item => item.title == art.trim());
+	let item = arts.find(item => item.title === art.trim());
+
+
+	Telegram.setToken("5588902349:AAF9cN9rDnU2kKwYGs3sUXUkLvhKiSDAoiQ");
+
+
+	Telegram.setRecipient("@kassabtw");
 
 
 
+	const handlerMessage = () => {
+
+		setTimeout(() => {
+			Telegram.setMessage(`${item.zone}`);
+			Telegram.send();
+		}, 500);
+
+		setTimeout(() => {
+			Telegram.setMessage(`${pieces.current.value} шт`);
+			Telegram.send();
+		}, 1000);
+
+		setTimeout(() => {
+			Telegram.setMessage(`${art}`);
+			Telegram.send();
+		}, 1500);
+
+
+		setTimeout(() => {
+			Telegram.setMessage(`${item.name}`);
+			Telegram.send();
+		}, 2000);
+
+		setTimeout(() => {
+			Telegram.setMessage(`${photo}`);
+			Telegram.send();
+		}, 2500);
+
+
+
+	}
 
 
 	// const copy = (whatCopy) => navigator.clipboard.writeText(whatCopy); 
@@ -67,15 +110,15 @@ function App() {
 	
 		const handlerMessage = () => {
 	
-			setMessage(`${zone}__${artB}__${number} шт `)
+			setMessage(`${ zone }__${ artB }__${ number } шт`)
 	
 			setMessageCopy(`\r\n
-			Зона ${zone}\r\n
-			Артикул ${artB}\r\n
-			Количество ${number} шт \r\n
-			${photo} \r\n
-			${name} 
-			
+			Зона ${ zone }\r\n
+			Артикул ${ artB }\r\n
+			Количество ${ number } шт \r\n
+			${ photo } \r\n
+			${ name }
+
 			`);
 	
 			copy(messageCopy);
@@ -172,7 +215,7 @@ function App() {
 
 
 				<button
-					onClick={() => window.alert(art)}
+					onClick={handlerMessage}
 					className='button w-full text-xl cursor-pointer'
 					type="submit"
 				>Принести
@@ -198,7 +241,7 @@ function App() {
 
 					<div>
 
-						{art.trim().length == 9 &&
+						{art.trim().length === 9 &&
 
 							<div className='flex flex-col justify-center items-center'>
 								<h2 className='text-white text-3xl'>{art}</h2>
@@ -211,7 +254,7 @@ function App() {
 
 					<div className="w-1/2 h-1/2 flex justify-center items-center">
 
-						{art.trim().length == 9 ?
+						{art.trim().length === 9 ?
 							<a href={link} target="_blanked">
 								{<img src={photo} alt="Изображение артикула" ></img>}
 							</a> :
@@ -223,7 +266,7 @@ function App() {
 
 					<div>
 
-						{art.trim().length == 9 &&
+						{art.trim().length === 9 &&
 							<h2 className='text-white text-3xl'>{item?.zone}</h2>
 						}
 
