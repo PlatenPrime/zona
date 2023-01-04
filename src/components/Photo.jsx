@@ -1,8 +1,6 @@
 import React from 'react';
-import style from "./../styles/Photo.module.css";
-import { FaPhotoVideo } from "react-icons/fa";
 
-import { TbBallon } from "react-icons/tb";
+
 
 
 const Photo = ({ artB }) => {
@@ -15,7 +13,7 @@ const Photo = ({ artB }) => {
 
 
 	return (
-		<div className={style.photo}>
+		<div className="">
 
 			{artB.trim().length == 9 ?
 				<a href={link} target="_blanked">
