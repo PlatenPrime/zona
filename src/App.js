@@ -4,6 +4,7 @@ import 'tw-elements';
 import { useEffect, useRef, useState } from 'react';
 
 import { ReactComponent as Ballons } from './assets/ballons.svg'
+import { ReactComponent as Smile } from './assets/smile-icon.svg'
 
 import Telegram from 'telegram-send-message';
 
@@ -19,18 +20,27 @@ function App() {
 
 	const [arts, setArts] = useState([]);
 	const [art, setArt] = useState("")
-	const [message, setMessage] = useState("")
+	const [send, setSend] = useState(false)
 	const [smile, setSmile] = useState("")
+	const [showSmile, setShowSmile] = useState(false)
 
 
 	const pieces = useRef(0);
 
 
 
+
+
+
+
+
 	const fetchSmiles = async () => {
 		try {
 
-			const { data } = await axios.get(`http://rzhunemogu.ru/RandJSON.aspx?CType=11`);
+			const arr = ['1', '11'];
+			const type = arr[Math.floor(Math.random() * 2)]
+
+			const { data } = await axios.get(`http://rzhunemogu.ru/RandJSON.aspx?CType=${type}`);
 
 			setSmile(data.slice(11, -1));
 
@@ -41,9 +51,6 @@ function App() {
 	}
 
 
-	useEffect(() => {
-		fetchSmiles()
-	}, [])
 
 
 
@@ -53,7 +60,7 @@ function App() {
 
 			const { data } = await axios.get(`https://btw-server-2.up.railway.app/api/arts`);
 			setArts(data.arts)
-			console.log(data.arts)
+
 
 		} catch (error) {
 			console.log(error)
@@ -90,31 +97,46 @@ function App() {
 
 	const handlerMessage = () => {
 
-		setTimeout(() => {
-			Telegram.setMessage(`${item.zone}`);
-			Telegram.send();
-		}, 500);
+		setSend(true);
 
-		setTimeout(() => {
-			Telegram.setMessage(`${pieces.current.value} шт`);
-			Telegram.send();
-		}, 1000);
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${photo}`);
+				Telegram.send();
+			}, 200);
+		}
 
-		setTimeout(() => {
-			Telegram.setMessage(`${art}`);
-			Telegram.send();
-		}, 1500);
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${item.name}`);
+				Telegram.send();
+			}, 400);
+		}
 
 
-		setTimeout(() => {
-			Telegram.setMessage(`${item.name}`);
-			Telegram.send();
-		}, 2000);
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${item.zone}`);
+				Telegram.send();
+			}, 600);
+		}
 
-		setTimeout(() => {
-			Telegram.setMessage(`${photo}`);
-			Telegram.send();
-		}, 2500);
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${pieces.current.value} шт`);
+				Telegram.send();
+			}, 800);
+		}
+
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${art}`);
+				Telegram.send();
+			}, 1000);
+		}
+
+
+
 
 
 
@@ -212,7 +234,7 @@ function App() {
 					<input
 						type="text"
 						className="input"
-						onChange={(e) => { setArt(e.target.value) }}
+						onChange={(e) => { setArt(e.target.value); setSend(false) }}
 						placeholder="Введи артикул">
 					</input>
 
@@ -249,12 +271,21 @@ function App() {
 		 flex justify-center items-center
 			  '>
 
-				<div className='
+				<div className={
+					`
 				flex flex-col items-center justify-evenly
-				border-8 border-white
+				border-8 border-green-600 
+
+				${send ? "border-opacity-90" : "border-opacity-0"}
+				
+				
+				rounded-md
+shadow-xl
+				${send && "shadow-green-600"}		
+
 				w-5/6 h-5/6
 
-				'>
+				`}>
 
 
 					<div>
@@ -270,11 +301,11 @@ function App() {
 					</div>
 
 
-					<div className="w-1/2 h-1/2 flex justify-center items-center">
+					<div className="w-1/2 h-1/2 flex justify-center items-center ">
 
 						{art.trim().length === 9 ?
 							<a href={link} target="_blanked">
-								{<img src={photo} alt="Изображение артикула" ></img>}
+								{<img className='rounded-lg shadow-md shadow-white' src={photo} alt="Изображение артикула" ></img>}
 							</a> :
 							<Ballons></Ballons>}
 
@@ -306,14 +337,24 @@ function App() {
 
 
 
-			<div className=' flex justify-center items-center w-full md:w-1/4 
-			 bg-green-600 bg-opacity-10'>
+			<div className=' flex justify-center items-center w-full md:w-1/4 p-4 '>
 
-				<div className='hidden md:flex justify-center items-center text-white '>
+				<div
+					className='hidden md:flex justify-center items-center text-white w-full overflow-auto h-1/2 p-1 cursor-pointer  '
+
+					onClick={() => { setShowSmile(prev => !prev) }}
+
+				>
 
 
-					{smile}
-
+					{showSmile ? smile :
+						<div
+							className='w-5/6 h-5-6 cursor-pointer'
+							onClick={fetchSmiles}
+						>
+							<Smile />
+						</div>
+					}
 
 
 
