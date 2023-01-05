@@ -99,41 +99,41 @@ function App() {
 
 		setSend(true);
 
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${photo}`);
-				Telegram.send();
-			}, 200);
-		}
+		// if (item) {
+		// 	setTimeout(() => {
+		// 		Telegram.setMessage(`${photo}`);
+		// 		Telegram.send();
+		// 	}, 200);
+		// }
 
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${item.name}`);
-				Telegram.send();
-			}, 400);
-		}
+		// if (item) {
+		// 	setTimeout(() => {
+		// 		Telegram.setMessage(`${item.name}`);
+		// 		Telegram.send();
+		// 	}, 400);
+		// }
 
 
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${item.zone}`);
-				Telegram.send();
-			}, 600);
-		}
+		// if (item) {
+		// 	setTimeout(() => {
+		// 		Telegram.setMessage(`${item.zone}`);
+		// 		Telegram.send();
+		// 	}, 600);
+		// }
 
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${pieces.current.value} шт`);
-				Telegram.send();
-			}, 800);
-		}
+		// if (item) {
+		// 	setTimeout(() => {
+		// 		Telegram.setMessage(`${pieces.current.value} шт`);
+		// 		Telegram.send();
+		// 	}, 800);
+		// }
 
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${art}`);
-				Telegram.send();
-			}, 1000);
-		}
+		// if (item) {
+		// 	setTimeout(() => {
+		// 		Telegram.setMessage(`${art}`);
+		// 		Telegram.send();
+		// 	}, 1000);
+		// }
 
 
 
@@ -141,60 +141,6 @@ function App() {
 
 
 	}
-
-
-	// const copy = (whatCopy) => navigator.clipboard.writeText(whatCopy); 
-
-
-	/* 
-	
-		const handlerMessage = () => {
-	
-			setMessage(`${ zone }__${ artB }__${ number } шт`)
-	
-			setMessageCopy(`\r\n
-			Зона ${ zone }\r\n
-			Артикул ${ artB }\r\n
-			Количество ${ number } шт \r\n
-			${ photo } \r\n
-			${ name }
-
-			`);
-	
-			copy(messageCopy);
-	
-		}
-	
-	
-		const handlerReset = () => {
-			setDisplayKasa(false);
-			setDisplayTraversa(false)
-	
-		} */
-
-
-	/* const handlerKasaMessage = () => {
-		setZone(item["zone"]);
-		setDisplayKasa(true);
-		setDisplayTraversa(false)
-
-
-	} */
-
-	/* const handlerZone = () => {
-
-		setZone(item["zone"]);
-		setDisplayTraversa(true);
-		setDisplayKasa(false);
-
-	} */
-
-	/* useEffect(handlerMessage);
-
-	useEffect(() => {
-		if (item) setName(item["name"])
-	})
- */
 
 
 
@@ -211,7 +157,7 @@ function App() {
 		max-h-screen
 		overflow-auto
 
-		flex flex-col justify-between md:flex-row  items-stretch
+		flex flex-col justify-center md:flex-row  items-stretch
 		
 		">
 
@@ -267,21 +213,21 @@ function App() {
 
 
 			<div className='
-			 w-full md:w-1/2 
+			 w-full md:w-3/4 
 		 flex justify-center items-center
 			  '>
 
 				<div className={
 					`
 				flex flex-col items-center justify-evenly
-				border-8 border-green-600 
+				border-8 border-green-500 
 
-				${send ? "border-opacity-90" : "border-opacity-0"}
+				${send ? "border-opacity-100" : "border-opacity-0"}
 				
 				
-				rounded-md
+				rounded-lg
 shadow-xl
-				${send && "shadow-green-600"}		
+				${send && "shadow-green-400"}		
 
 				w-5/6 h-5/6
 
@@ -301,7 +247,7 @@ shadow-xl
 					</div>
 
 
-					<div className="w-1/2 h-1/2 flex justify-center items-center ">
+					<div className="w-5/12 h-5/12 flex justify-center items-center ">
 
 						{art.trim().length === 9 ?
 							<a href={link} target="_blanked">
@@ -336,7 +282,7 @@ shadow-xl
 
 
 
-
+			{/* 
 			<div className=' flex justify-center items-center w-full md:w-1/4 p-4 '>
 
 				<div
@@ -360,7 +306,7 @@ shadow-xl
 
 				</div>
 
-			</div>
+			</div> */}
 
 
 
