@@ -99,41 +99,41 @@ function App() {
 
 		setSend(true);
 
-		// if (item) {
-		// 	setTimeout(() => {
-		// 		Telegram.setMessage(`${photo}`);
-		// 		Telegram.send();
-		// 	}, 200);
-		// }
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${photo}`);
+				Telegram.send();
+			}, 200);
+		}
 
-		// if (item) {
-		// 	setTimeout(() => {
-		// 		Telegram.setMessage(`${item.name}`);
-		// 		Telegram.send();
-		// 	}, 400);
-		// }
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${item.name}`);
+				Telegram.send();
+			}, 400);
+		}
 
 
-		// if (item) {
-		// 	setTimeout(() => {
-		// 		Telegram.setMessage(`${item.zone}`);
-		// 		Telegram.send();
-		// 	}, 600);
-		// }
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${item.zone}`);
+				Telegram.send();
+			}, 600);
+		}
 
-		// if (item) {
-		// 	setTimeout(() => {
-		// 		Telegram.setMessage(`${pieces.current.value} шт`);
-		// 		Telegram.send();
-		// 	}, 800);
-		// }
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${pieces.current.value} шт`);
+				Telegram.send();
+			}, 800);
+		}
 
-		// if (item) {
-		// 	setTimeout(() => {
-		// 		Telegram.setMessage(`${art}`);
-		// 		Telegram.send();
-		// 	}, 1000);
-		// }
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${art}`);
+				Telegram.send();
+			}, 1000);
+		}
 
 
 
