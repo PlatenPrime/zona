@@ -21,34 +21,11 @@ function App() {
 	const [arts, setArts] = useState([]);
 	const [art, setArt] = useState("")
 	const [send, setSend] = useState(false)
-	const [smile, setSmile] = useState("")
-	const [showSmile, setShowSmile] = useState(false)
+
 
 
 	const pieces = useRef(0);
 
-
-
-
-
-
-
-
-	const fetchSmiles = async () => {
-		try {
-
-			const arr = ['1', '11'];
-			const type = arr[Math.floor(Math.random() * 2)]
-
-			const { data } = await axios.get(`http://rzhunemogu.ru/RandJSON.aspx?CType=${type}`);
-
-			setSmile(data.slice(11, -1));
-
-
-		} catch (error) {
-			console.log(error)
-		}
-	}
 
 
 
@@ -98,19 +75,13 @@ function App() {
 	const handlerMessage = () => {
 
 		setSend(true);
+		pieces.current.value = 0;
 
 		if (item) {
 			setTimeout(() => {
 				Telegram.setMessage(`${photo}`);
 				Telegram.send();
-			}, 200);
-		}
-
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${item.name}`);
-				Telegram.send();
-			}, 400);
+			}, 300);
 		}
 
 
@@ -121,19 +92,28 @@ function App() {
 			}, 600);
 		}
 
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${pieces.current.value} шт`);
-				Telegram.send();
-			}, 800);
-		}
 
 		if (item) {
 			setTimeout(() => {
 				Telegram.setMessage(`${art}`);
 				Telegram.send();
-			}, 1000);
+			}, 900);
 		}
+
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${pieces.current.value} шт`);
+				Telegram.send();
+			}, 1200);
+		}
+
+		if (item) {
+			setTimeout(() => {
+				Telegram.setMessage(`${item.name}`);
+				Telegram.send();
+			}, 1500);
+		}
+
 
 
 
@@ -278,35 +258,6 @@ shadow-xl
 
 
 
-
-
-
-
-			{/* 
-			<div className=' flex justify-center items-center w-full md:w-1/4 p-4 '>
-
-				<div
-					className='hidden md:flex justify-center items-center text-white w-full overflow-auto h-1/2 p-1 cursor-pointer  '
-
-					onClick={() => { setShowSmile(prev => !prev) }}
-
-				>
-
-
-					{showSmile ? smile :
-						<div
-							className='w-5/6 h-5-6 cursor-pointer'
-							onClick={fetchSmiles}
-						>
-							<Smile />
-						</div>
-					}
-
-
-
-				</div>
-
-			</div> */}
 
 
 
