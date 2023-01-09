@@ -24,7 +24,7 @@ function App() {
 
 
 
-	const pieces = useRef(0);
+	const pieces = useRef();
 
 
 
@@ -75,7 +75,9 @@ function App() {
 	const handlerMessage = () => {
 
 		setSend(true);
-		pieces.current.value = 0;
+
+
+
 
 		if (item) {
 			setTimeout(() => {
@@ -115,15 +117,12 @@ function App() {
 		}
 
 
-
-
-
-
-
 	}
 
 
-
+	function resetInputNumber() {
+		pieces.current.value = 0;
+	}
 
 
 
@@ -160,7 +159,7 @@ function App() {
 					<input
 						type="text"
 						className="input"
-						onChange={(e) => { setArt(e.target.value); setSend(false) }}
+						onChange={(e) => { setArt(e.target.value); setSend(false); resetInputNumber(); }}
 						placeholder="Введи артикул">
 					</input>
 
