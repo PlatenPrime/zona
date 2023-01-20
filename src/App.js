@@ -35,7 +35,7 @@ function App() {
 	const fetchArts = async () => {
 		try {
 
-			const { data } = await axios.get(`https://btw-server-2.up.railway.app/api/arts`);
+			const { data } = await axios.get(`https://btw-server-1.up.railway.app/api/arts`);
 			setArts(data.arts)
 
 
@@ -74,48 +74,50 @@ function App() {
 
 	const handlerMessage = () => {
 
-		setSend(true);
 
-
-
-
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${photo}`);
-				Telegram.send();
-			}, 300);
+		if (pieces.current.value == 0) {
+			window.alert("Введи количество");
 		}
 
+		else {
 
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${item.zone}`);
-				Telegram.send();
-			}, 600);
+
+			setSend(true);
+
+			window.alert("Запрос полетел");
+
+
+			if (item) {
+				setTimeout(() => {
+					Telegram.setMessage(`${photo}`);
+					Telegram.send();
+				}, 200);
+
+				setTimeout(() => {
+					Telegram.setMessage(`${item.zone}`);
+					Telegram.send();
+				}, 400);
+
+				setTimeout(() => {
+					Telegram.setMessage(`${art}`);
+					Telegram.send();
+				}, 600);
+
+				setTimeout(() => {
+					Telegram.setMessage(`${pieces.current.value} шт`);
+					Telegram.send();
+				}, 800);
+
+				setTimeout(() => {
+					Telegram.setMessage(`${item.name}`);
+					Telegram.send();
+				}, 1000);
+
+
+			}
+
+
 		}
-
-
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${art}`);
-				Telegram.send();
-			}, 900);
-		}
-
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${pieces.current.value} шт`);
-				Telegram.send();
-			}, 1200);
-		}
-
-		if (item) {
-			setTimeout(() => {
-				Telegram.setMessage(`${item.name}`);
-				Telegram.send();
-			}, 1500);
-		}
-
 
 	}
 
