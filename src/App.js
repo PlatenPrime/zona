@@ -35,7 +35,7 @@ function App() {
 	const fetchArts = async () => {
 		try {
 
-			const { data } = await axios.get(`https://btw-server-1.up.railway.app/api/arts`);
+			const { data } = await axios.get(`https://btw-server.onrender.com/api/arts`);
 			setArts(data.arts)
 
 
