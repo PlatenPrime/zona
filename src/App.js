@@ -37,7 +37,7 @@ function App() {
 
 			const { data } = await axios.get(`https://btw-server.up.railway.app/api/arts`);
 			setArts(data.arts)
-
+			console.log(data.arts)
 
 		} catch (error) {
 			console.log(error)
