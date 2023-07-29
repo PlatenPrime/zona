@@ -9,6 +9,11 @@ import { ReactComponent as Smile } from './assets/smile-icon.svg'
 import Telegram from 'telegram-send-message';
 
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 
 
 
@@ -21,10 +26,12 @@ function App() {
 	const [arts, setArts] = useState([]);
 	const [art, setArt] = useState("")
 	const [send, setSend] = useState(false)
+	
 
 
 
 	const pieces = useRef();
+
 
 
 
@@ -64,11 +71,16 @@ function App() {
 
 	let item = arts.find(item => item.title === art.trim());
 
+	// const { quant } = useFetchArtPogrebi(item.title)
+
+	console.log(item)
+
 
 	Telegram.setToken("5588902349:AAF9cN9rDnU2kKwYGs3sUXUkLvhKiSDAoiQ");
 
 
-	Telegram.setRecipient("@kassabtw");
+	// Telegram.setRecipient("@kassabtw");
+	Telegram.setRecipient("@workplaten");
 
 
 
@@ -76,18 +88,19 @@ function App() {
 
 
 		if (pieces.current.value == 0) {
-			window.alert("Введи количество");
+			toast.error("Введи количество");
 		}
 
+
+
+
 		else {
-
-
 			setSend(true);
 
-			window.alert("Запрос полетел");
-
-
 			if (item) {
+
+				toast.success("Запрос полетел на склад");
+
 				setTimeout(() => {
 					Telegram.setMessage(`${photo}`);
 					Telegram.send();
@@ -115,11 +128,11 @@ function App() {
 
 
 			}
-
-
 		}
-
 	}
+
+
+
 
 
 	function resetInputNumber() {
@@ -174,6 +187,7 @@ function App() {
 						type="number"
 						className=" input"
 						ref={pieces}
+						onChange={() => setSend(false)}
 						placeholder="Введи количество">
 
 					</input>
@@ -183,9 +197,11 @@ function App() {
 
 				<button
 					onClick={handlerMessage}
-					className='button w-full text-xl cursor-pointer'
+					className={`button w-full text-xl  ${!item && 'bg-slate-500 hover:bg-slate-600 '}`}
+					disabled={!item}
 					type="submit"
-				>Принести
+				>
+					Принести
 				</button>
 
 			</form>
@@ -215,17 +231,7 @@ shadow-xl
 				`}>
 
 
-					<div>
 
-						{art.trim().length === 9 &&
-
-							<div className='flex flex-col justify-center items-center'>
-								<h2 className='text-white text-3xl'>{art}</h2>
-								<h2 className='text-white text-lg italic'>{item?.name}</h2>
-							</div>
-						}
-
-					</div>
 
 
 					<div className="w-5/12 h-5/12 flex justify-center items-center ">
@@ -243,7 +249,21 @@ shadow-xl
 					<div>
 
 						{art.trim().length === 9 &&
-							<h2 className='text-white text-3xl'>{item?.zone}</h2>
+
+							<div className='flex flex-col justify-center items-center'>
+
+								<h2 className='text-white text-xl italic'>{item?.name}</h2>
+							</div>
+						}
+
+					</div>
+
+
+
+					<div>
+
+						{art.trim().length === 9 &&
+							<h2 className='text-white text-3xl border p-3'>Зона: {item?.zone}</h2>
 						}
 
 					</div>
@@ -261,7 +281,21 @@ shadow-xl
 
 
 
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="colored"
 
+
+
+			/>
 
 
 
