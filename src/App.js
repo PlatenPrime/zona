@@ -26,7 +26,7 @@ function App() {
 	const [arts, setArts] = useState([]);
 	const [art, setArt] = useState("")
 	const [send, setSend] = useState(false)
-	
+
 
 
 
@@ -79,8 +79,8 @@ function App() {
 	Telegram.setToken("5588902349:AAF9cN9rDnU2kKwYGs3sUXUkLvhKiSDAoiQ");
 
 
-	// Telegram.setRecipient("@kassabtw");
-	Telegram.setRecipient("@workplaten");
+	Telegram.setRecipient("@kassabtw");
+	// Telegram.setRecipient("@workplaten");
 
 
 
