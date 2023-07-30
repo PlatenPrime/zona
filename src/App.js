@@ -13,6 +13,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+import { getQuant } from './utils/getQuant';
+
+
 
 
 
@@ -26,16 +29,16 @@ function App() {
 	const [arts, setArts] = useState([]);
 	const [art, setArt] = useState("")
 	const [send, setSend] = useState(false)
+	const [pogrebi, setPogrebi] = useState("...");
 
 
 
 
 	const pieces = useRef();
 
-
-
-
-
+	function resetInputNumber() {
+		pieces.current.value = 0;
+	}
 
 
 
@@ -66,35 +69,42 @@ function App() {
 	const link = `https://sharik.ua/ua/search/?q=${art.trim()}`
 
 
-
-
-
 	let item = arts.find(item => item.title === art.trim());
 
-	// const { quant } = useFetchArtPogrebi(item.title)
 
-	console.log(item)
+	async function getPogrebi(art) {
+		try {
+			const result = await getQuant(art);
+			setPogrebi(result); // Выведет результат запроса
+		} catch (error) {
+			console.error(error); // Обработка ошибки, если что-то пошло не так
+		}
+	}
 
+
+	useEffect(() => {
+
+
+		if (item) getPogrebi(item.title);
+
+		return () => { }
+	}, [item])
+
+
+
+
+
+	// TELEGRAM
 
 	Telegram.setToken("5588902349:AAF9cN9rDnU2kKwYGs3sUXUkLvhKiSDAoiQ");
-
-
 	Telegram.setRecipient("@kassabtw");
 	// Telegram.setRecipient("@workplaten");
 
-
-
 	const handlerMessage = () => {
-
 
 		if (pieces.current.value == 0) {
 			toast.error("Введи количество");
-		}
-
-
-
-
-		else {
+		} else {
 			setSend(true);
 
 			if (item) {
@@ -126,17 +136,8 @@ function App() {
 					Telegram.send();
 				}, 1000);
 
-
 			}
 		}
-	}
-
-
-
-
-
-	function resetInputNumber() {
-		pieces.current.value = 0;
 	}
 
 
@@ -174,7 +175,7 @@ function App() {
 					<input
 						type="text"
 						className="input"
-						onChange={(e) => { setArt(e.target.value); setSend(false); resetInputNumber(); }}
+						onChange={(e) => { setArt(e.target.value); setSend(false); resetInputNumber(); setPogrebi("...") }}
 						placeholder="Введи артикул">
 					</input>
 
@@ -197,7 +198,7 @@ function App() {
 
 				<button
 					onClick={handlerMessage}
-					className={`button w-full text-xl  ${!item && 'bg-slate-500 hover:bg-slate-600 '}`}
+					className={`button w-full text-xl  ${!item && 'bg-slate-500  bg-opacity-20 '}`}
 					disabled={!item}
 					type="submit"
 				>
@@ -210,6 +211,7 @@ function App() {
 
 
 			<div className='
+			my-3 
 			 w-full md:w-3/4 
 		 flex justify-center items-center
 			  '>
@@ -220,17 +222,26 @@ function App() {
 				border-8 border-green-500 
 
 				${send ? "border-opacity-100" : "border-opacity-0"}
-				
-				
-				rounded-lg
-shadow-xl
-				${send && "shadow-green-400"}		
-
+				${send && "shadow-green-400"}	
+				rounded-lg shadow-xl
 				w-5/6 h-5/6
 
 				`}>
 
 
+
+
+					<div className='bg-sky-500 bg-opacity-20 w-full  ' >
+
+						{art.trim().length === 9 &&
+
+							<div className='flex flex-col justify-center items-center border rounded my-1'>
+
+								<h2 className='text-white text-center p-1 text-xl'>{item?.name}</h2>
+							</div>
+						}
+
+					</div>
 
 
 
@@ -246,25 +257,20 @@ shadow-xl
 
 
 
-					<div>
 
-						{art.trim().length === 9 &&
 
-							<div className='flex flex-col justify-center items-center'>
 
-								<h2 className='text-white text-xl italic'>{item?.name}</h2>
-							</div>
+					<div className="" >
+
+						{art.trim().length === 9 && <>
+
+							<h2 className=' text-white text-center  text-3xl bg-orange-500 bg-opacity-20 border-orange-500 rounded  border-2 p-1 my-1'>Зона: {item?.zone}</h2>
+							<h2 className='text-white text-center  text-3xl bg-sky-500 bg-opacity-20 border-slate-500  rounded  border-2 p-1 my-1'> Погреби:  {pogrebi} шт</h2>
+
+						</>
+
 						}
 
-					</div>
-
-
-
-					<div>
-
-						{art.trim().length === 9 &&
-							<h2 className='text-white text-3xl border p-3'>Зона: {item?.zone}</h2>
-						}
 
 					</div>
 
