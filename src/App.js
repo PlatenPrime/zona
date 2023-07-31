@@ -219,11 +219,11 @@ function App() {
 				<div className={
 					`
 				flex flex-col items-center justify-evenly
-				border-8 border-green-500 
+				border-4 border-sky-500 
 
 				${send ? "border-opacity-100" : "border-opacity-0"}
-				${send && "shadow-green-400"}	
-				rounded-lg shadow-xl
+				${send && "shadow-sky-400"}	
+				rounded-lg shadow-2xl
 				w-5/6 h-5/6
 
 				`}>
@@ -231,13 +231,13 @@ function App() {
 
 
 
-					<div className='bg-sky-500 bg-opacity-20 w-full  ' >
+					<div className=' w-full ' >
 
 						{art.trim().length === 9 &&
 
-							<div className='flex flex-col justify-center items-center border rounded my-1'>
+							<div className='bg-sky-500 bg-opacity-80 shadow-xl shadow-sky-500 flex flex-col justify-center mx-2  items-center border border-sky-500 rounded '>
 
-								<h2 className='text-white text-center p-1 text-xl'>{item?.name}</h2>
+								<h2 className='text-white text-center p-2 text-xl md:text-2xl'>{item?.name}</h2>
 							</div>
 						}
 
@@ -249,7 +249,7 @@ function App() {
 
 						{art.trim().length === 9 ?
 							<a href={link} target="_blanked">
-								{<img className='rounded-lg shadow-md shadow-white' src={photo} alt="Изображение артикула" ></img>}
+								{<img className='rounded-lg shadow-2xl shadow-white' src={photo} alt="Изображение артикула" ></img>}
 							</a> :
 							<Ballons></Ballons>}
 
@@ -260,12 +260,12 @@ function App() {
 
 
 
-					<div className="" >
+					<div className=" w-full md:flex md:justify-around" >
 
 						{art.trim().length === 9 && <>
 
-							<h2 className=' text-white text-center  text-3xl bg-orange-500 bg-opacity-20 border-orange-500 rounded  border-2 p-1 my-1'>Зона: {item?.zone}</h2>
-							<h2 className='text-white text-center  text-3xl bg-sky-500 bg-opacity-20 border-slate-500  rounded  border-2 p-1 my-1'> Погреби:  {pogrebi} шт</h2>
+							<h2 className=' text-white text-center  text-3xl shadow-2xl shadow-orange-500  bg-orange-300 bg-opacity-50 border-orange-500 rounded  border-2 p-2 my-1'>Зона: {item?.zone}</h2>
+							<h2 className='text-white text-center  text-3xl shadow-2xl shadow-sky-500 bg-sky-500 bg-opacity-50 border-sky-500  rounded  border-2 p-2 my-1'> Погреби:  {pogrebi} шт</h2>
 
 						</>
 
