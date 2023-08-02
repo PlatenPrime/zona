@@ -97,8 +97,8 @@ function App() {
 	// TELEGRAM
 
 	Telegram.setToken("5588902349:AAF9cN9rDnU2kKwYGs3sUXUkLvhKiSDAoiQ");
-	Telegram.setRecipient("@kassabtw");
-	// Telegram.setRecipient("@workplaten");
+	// Telegram.setRecipient("@kassabtw");
+	Telegram.setRecipient("@workplaten");
 
 	const handlerMessage = () => {
 
@@ -141,6 +141,10 @@ function App() {
 	}
 
 
+	const handlerUrgent = () => {
+		Telegram.setMessage(`НУ ШО ТАМ?`);
+		Telegram.send();
+	}
 
 
 	return (
@@ -186,7 +190,7 @@ function App() {
 
 					<input
 						type="number"
-						className=" input"
+						className=" input hidden md:block "
 						ref={pieces}
 						onChange={() => setSend(false)}
 						placeholder="Введи количество">
@@ -198,12 +202,24 @@ function App() {
 
 				<button
 					onClick={handlerMessage}
-					className={`button w-full text-xl  ${!item && 'bg-slate-500  bg-opacity-20 '}`}
+					className={`button hidden md:block w-full text-xl  ${!item && 'bg-slate-500  bg-opacity-20 '}`}
 					disabled={!item}
 					type="submit"
 				>
 					Принести
 				</button>
+
+
+				<button
+					onClick={handlerUrgent}
+					className={`button hidden md:block mt-4  w-full text-xl bg-rose-500  ${!item && 'bg-rose-500  bg-opacity-20 '}`}
+					disabled={!item}
+
+				>
+					НУ ШО ТАМ?
+				</button>
+
+
 
 			</form>
 
