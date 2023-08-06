@@ -69,7 +69,7 @@ function App() {
 	const link = `https://sharik.ua/ua/search/?q=${art.trim()}`
 
 
-	let item = arts.find(item => item.title === art.trim());
+	let item = arts.find(item => item.artikul === art.trim());
 
 
 	async function getPogrebi(art) {
@@ -85,7 +85,7 @@ function App() {
 	useEffect(() => {
 
 
-		if (item) getPogrebi(item.title);
+		if (item) getPogrebi(item.artikul);
 
 		return () => { }
 	}, [item])
@@ -253,7 +253,7 @@ function App() {
 
 							<div className='bg-sky-500 bg-opacity-80 shadow-xl shadow-sky-500 flex flex-col justify-center mx-2  items-center border border-sky-500 rounded '>
 
-								<h2 className='text-white text-center p-2 text-xl md:text-2xl'>{item?.name}</h2>
+								<h2 className='text-white text-center p-2 text-xl md:text-2xl'>{item?.nameukr}</h2>
 							</div>
 						}
 
