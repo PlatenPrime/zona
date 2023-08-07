@@ -132,7 +132,7 @@ function App() {
 				}, 800);
 
 				setTimeout(() => {
-					Telegram.setMessage(`${item.name}`);
+					Telegram.setMessage(`${item.nameukr}`);
 					Telegram.send();
 				}, 1000);
 
