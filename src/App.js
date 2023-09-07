@@ -141,10 +141,10 @@ function App() {
 	}
 
 
-	const handlerUrgent = () => {
-		Telegram.setMessage(`НУ ШО ТАМ?`);
-		Telegram.send();
-	}
+	// const handlerUrgent = () => {
+	// 	Telegram.setMessage(`НУ ШО ТАМ?`);
+	// 	Telegram.send();
+	// }
 
 
 	return (
@@ -210,14 +210,14 @@ function App() {
 				</button>
 
 
-				<button
-					onClick={handlerUrgent}
-					className={`button hidden md:block mt-4  w-full text-xl bg-rose-500  ${!item && 'bg-rose-500  bg-opacity-20 '}`}
-					disabled={!item}
+				// <button
+				// 	onClick={handlerUrgent}
+				// 	className={`button hidden md:block mt-4  w-full text-xl bg-rose-500  ${!item && 'bg-rose-500  bg-opacity-20 '}`}
+				// 	disabled={!item}
 
-				>
-					НУ ШО ТАМ?
-				</button>
+				// >
+				// 	НУ ШО ТАМ?
+				// </button>
 
 
 
