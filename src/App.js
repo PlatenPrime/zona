@@ -203,6 +203,7 @@ lg:max-w-7xl
 					onClick={handleMessage}
 					className={`  p-2 text-xl text-green-400 hover:text-white cursor-pointer 
 						bg-green-transparent border-2 border-green-500
+						disabled:text-slate-300
 						disabled:border-slate-500
 						disabled:bg-slate-transparent 
 						disabled:bg-slate-500/50
