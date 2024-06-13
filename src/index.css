@@ -15,16 +15,9 @@
 		
 		font-family: 'Poppins', sans-serif;
 
-		background: #4b6cb7;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-		
-
-		
-	
-	
-		  
+		/* background: #040c1d;   */
+		background-image: url( "https://wallscloud.net/img/resize/1920/1080/RM/2016-10-20-%D0%A1%D0%B5%D1%80%D0%B4%D0%B8%D1%82%D1%8B%D0%B9_%D0%9A%D0%BE%D1%82%D0%B8%D0%BA.jpg");  
+		background-size: cover;
 		min-height: 100vh;
 		
 	  }
@@ -38,69 +31,10 @@ iframe {
 
 	@layer components {
 
-		.input 
-		{
-		  @apply 
-		  form-control
-		 
-		  w-full
-		  px-3
-		  py-1.5
-		
-		  font-normal
-		  text-white
-		  text-4xl
-sm:text-lg
-		  md:text-2xl
-		  lg:text-4xl
-		  text-center
-		  flex
-		  items-center
-		  justify-center
-		  bg-transparent bg-opacity-50 bg-clip-padding
-hover:bg-white hover:bg-opacity-20 focus:bg-transparent active:bg-transparent
-
-		  border border-solid border-gray-300
-		  rounded
-		  transition
-		  ease-in-out
-		  m-0
-		  focus:text-white  focus:border-white focus:outline-none
-		  placeholder:text-gray-400 placeholder:text-lg 
-		  placeholder:flex
-		  placeholder:items-center
-		  placeholder:justify-center
-		  ;
-		}
 
 
 
-		.button {
-			@apply
-			inline-block 
-			px-6 
-			py-2.5 
-			bg-sky-700 
-			bg-opacity-75
-			text-white 
-			font-medium 
-			text-xs 
-			leading-tight 
-			uppercase 
-			rounded 
-			shadow-md 
-			hover:bg-opacity-50
-			hover:shadow-lg 
-			focus:bg-opacity-75 
-			focus:shadow-lg 
-			focus:outline-none 
-			focus:ring-0 
-			active:bg-opacity-100
-			active:shadow-lg 
-			transition 
-			duration-150 
-			ease-in-out
-		}
+	
 
 
 
