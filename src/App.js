@@ -21,7 +21,7 @@ function App() {
 
 	const [arts, setArts] = useState([]);
 	const [art, setArt] = useState("")
-	const [pieces, setPieces] = useState(0)
+	const [pieces, setPieces] = useState(null)
 
 	const [error, setError] = useState(null)
 	const [quant, setQuant] = useState(null)
@@ -180,7 +180,7 @@ lg:max-w-7xl
 						className="bg-slate-500/20 text-white text-3xl text-center focus:bg-slate-500/50 outline-none rounded-xl"
 						value={art}
 						onChange={(e) => { setArt(e.target.value) }}
-						placeholder="Введи артикул">
+						placeholder="Артикул...">
 					</input>
 
 
@@ -192,7 +192,7 @@ lg:max-w-7xl
 						className=" bg-slate-500/20 text-white text-3xl text-center focus:bg-slate-500/50 outline-none rounded-xl w-full"
 						value={pieces}
 						onChange={(e) => setPieces(e.target.value)}
-						placeholder="Введи кількість">
+						placeholder="Кількість...">
 
 					</input>
 
@@ -215,7 +215,7 @@ lg:max-w-7xl
 					disabled={!item}
 					type="submit"
 				>
-					Принести
+					Надіслати
 				</button>
 
 
