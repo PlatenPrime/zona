@@ -201,8 +201,8 @@ lg:max-w-7xl
 
 				<button
 					onClick={handleMessage}
-					className={`  p-2 text-xl text-white cursor-pointer 
-						bg-green-500/50 border-2 border-green-500
+					className={`  p-2 text-xl text-green-400 hover:text-white cursor-pointer 
+						bg-green-transparent border-2 border-green-500
 						disabled:border-slate-500
 						disabled:bg-slate-transparent 
 						disabled:bg-slate-500/50
@@ -257,7 +257,7 @@ lg:max-w-7xl
 				>
 
 
-					<div className='col-span-2 bg-gradient-to-b from-fuchsia-500 to-fuchsia-900  flex flex-col justify-center  items-center  rounded-xl py-2'>
+					<div className='col-span-2 bg-gradient-to-b from-teal-500 to-teal-900  flex flex-col justify-center  items-center  rounded-xl py-2'>
 
 						<h2 className='text-white text-center text-xl md:text-2xl'>{item?.nameukr || ''}</h2>
 					</div>
